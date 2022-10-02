@@ -71,3 +71,8 @@ body{
         border: none;
     }
 }
+
+/* LOGIN FORM CSS */
+.login-form{
+    display: none;
+}

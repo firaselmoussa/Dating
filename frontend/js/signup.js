@@ -46,3 +46,17 @@ setInterval(function(){
         typer.style.opacity = '1';
     }
 }, 300)
+
+
+//FORMS
+const content_container = document.querySelector('.content-container');
+const login_form  = document.getElementById('login_form');
+
+// LOGIN FORM 
+const outer_login_btn = document.getElementById('outer_login_btn');
+const inner_login_btn = document.getElementById('inner_login_btn');
+
+outer_login_btn.addEventListener('click', ()=>{
+    content_container.style.display = 'none';
+    login_form.style.display = 'block';
+})
