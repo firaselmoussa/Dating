@@ -59,12 +59,12 @@ body{
     border-left: 2px solid white;
     height: 40px;
     width:100%;
-    background: black;
+    /* background: black;
     animation:  typing-1 8s steps(43) forwards,
-                typing-2 1.5s 8s steps(5) forwards;
+                typing-2 1.5s 8s steps(5) forwards; */
 }
 
-@keyframes typing-1 {
+/* @keyframes typing-1 {
     100%{
         width: 0%;
         left:100%;
@@ -76,4 +76,4 @@ body{
         width: 13%;
         left: 87%;
     }
-}
+} */
