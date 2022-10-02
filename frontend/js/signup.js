@@ -33,4 +33,16 @@ let typingInterval = setInterval(function(){
             }
     }
     
-}, 120)
+}, 200)
+
+
+// TYPER APPEAR_DISAPEAR EFFECT
+let typer = document.querySelector('.typer');
+
+setInterval(function(){
+    if(typer.style.opacity == '1'){
+        typer.style.opacity = '0';
+    }else{
+        typer.style.opacity = '1';
+    }
+}, 300)
