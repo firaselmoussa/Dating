@@ -58,5 +58,5 @@ const inner_login_btn = document.getElementById('inner_login_btn');
 
 outer_login_btn.addEventListener('click', ()=>{
     content_container.style.display = 'none';
-    login_form.style.display = 'block';
+    login_form.style.display = 'flex';
 })
