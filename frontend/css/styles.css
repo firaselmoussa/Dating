@@ -27,15 +27,16 @@ body{
     align-items: center;
     width: fit-content;
     height: fit-content;
-    scale: .6;
     filter: drop-shadow(0 0 4px white);
 }
 
 .logo h1{
     margin-left: 20px;
+    font-size: 20px;
 }
 
 .logo-img{
+    width: 80px;
     margin: 5px;
     filter: drop-shadow(0 0 2px white)
             drop-shadow(0 0 1px white)

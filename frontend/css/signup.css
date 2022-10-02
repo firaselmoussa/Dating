@@ -40,18 +40,34 @@ body{
 
 .content-container{
     backdrop-filter: blur(6px) brightness(.9);
-    width: fit-content;
+    width: 300px;
     height: fit-content;
+    min-height: 60vh;
     padding: 5px 10px;
     position: fixed;
     top: 50%;
     left: 50px;
+    right:50px;
     transform: translateY(-50%);
     border: 1px solid white;
     border-radius: 5px;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
 
 .typer{
     margin-left: -19px;
     opacity: 1;
+}
+
+/* Responsivness */
+
+@media only screen and (max-width: 450px) {
+    .content-container {
+        left:0;
+        right: 0;
+        width: 100vw;
+    }
 }
