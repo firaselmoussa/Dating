@@ -51,3 +51,29 @@ body{
     border-radius: 5px;
 }
 
+/* dynamic-txt */
+.dynamic-txt::after{
+    content: '';
+    position: absolute;
+    left:0;
+    border-left: 2px solid white;
+    height: 40px;
+    width:100%;
+    background: black;
+    animation:  typing-1 8s steps(43) forwards,
+                typing-2 1.5s 8s steps(5) forwards;
+}
+
+@keyframes typing-1 {
+    100%{
+        width: 0%;
+        left:100%;
+    }
+}
+
+@keyframes typing-2 {
+    100% {
+        width: 13%;
+        left: 87%;
+    }
+}
