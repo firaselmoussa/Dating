@@ -90,6 +90,13 @@ body{
     color: white;
     margin-top: -20px;
 }
+
+#login_close_btn{
+    position: fixed;
+    top:0;
+    right: 8;
+    cursor: pointer;
+}
 /* Responsivness */
 
 @media only screen and (max-width: 450px) {

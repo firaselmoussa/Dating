@@ -60,3 +60,11 @@ outer_login_btn.addEventListener('click', ()=>{
     content_container.style.display = 'none';
     login_form.style.display = 'flex';
 })
+
+// CLOSING FORMS
+const login_close_btn = document.getElementById('login_close_btn');
+
+login_close_btn.addEventListener('click', ()=>{
+    content_container.style.display = 'flex';
+    login_form.style.display = 'none';
+})
