@@ -51,6 +51,7 @@ setInterval(function(){
 //FORMS
 const content_container = document.querySelector('.content-container');
 const login_form  = document.getElementById('login_form');
+const signup_form  = document.getElementById('signup_form');
 
 // LOGIN FORM 
 const outer_login_btn = document.getElementById('outer_login_btn');
@@ -59,6 +60,15 @@ const inner_login_btn = document.getElementById('inner_login_btn');
 outer_login_btn.addEventListener('click', ()=>{
     content_container.style.display = 'none';
     login_form.style.display = 'flex';
+})
+
+// SIGNUP FORM 
+const outer_signup_btn = document.getElementById('outer_signup_btn');
+const inner_signup_btn = document.getElementById('inner_signup_btn');
+
+outer_signup_btn.addEventListener('click', ()=>{
+    content_container.style.display = 'none';
+    signup_form.style.display = 'flex';
 })
 
 // CLOSING FORMS
