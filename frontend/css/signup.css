@@ -116,6 +116,30 @@ body{
     right: 8;
     cursor: pointer;
 }
+
+/* SCROLL BAR CSS */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--minor-txt-color);
+    border-radius: 10px;
+    box-shadow: 0 0 6px inset var(--footer-bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    box-shadow: 0 0 6px inset var(--footer-bg-color);
+    background: white;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    box-shadow: 0 0 4px inset var(--footer-bg-color);
+}
+
+
 /* Responsivness */
 
 @media only screen and (max-width: 450px) {
