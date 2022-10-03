@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
+/* RESET */
+*{
+    margin:0;
+    padding: 0;
+}
+
+:root {
+    --main-txt-color: #400D51;
+    --minor-txt-color: #D800A6;
+    --footer-bg-color: #181818;
+    --main-bg-color: #AF0171;
+}
+
+body{
+    color:white;
+    font-family: 'Noto Sans Mono', monospace;
+}
+
+/* LOGO CSS */
+/* container */
+.logo{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    filter: drop-shadow(0 0 4px white);
+}
+
+.logo h1{
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.logo-img{
+    width: 80px;
+    margin: 5px;
+    filter: drop-shadow(0 0 2px white)
+            drop-shadow(0 0 1px white)
+            drop-shadow(0 0 1px white)
+            drop-shadow(0 0 1px white) 
+            drop-shadow(0 0 1px white);
+    animation: logo-img-shine 4s ease-in-out infinite ;
+}
+
+@keyframes logo-img-shine {
+    50%{
+        filter: drop-shadow(0 0 2px #D800A6) 
+                drop-shadow(0 0 1px #D800A6) 
+                drop-shadow(0 0 1px #D800A6) 
+                drop-shadow(0 0 1px #D800A6) 
+                drop-shadow(0 0 1px #D800A6);
+    }
+}
+
+/* BUTTONS CSS */
+
+.big-btn{
+    color:white;
+    font-size: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 1px white);
+}
+
+.pink{
+    background: var(--minor-txt-color);
+}
+
+.pink:hover{
+    background: var(--main-bg-color);
+    scale: 1.01;
+}
