@@ -60,6 +60,83 @@
 
     </form>
 
+<!-- SIGNUP FORM -->
+<form action="" class="signup-form" id="signup_form">
+
+    <h3 id="login_close_btn">x</h3>
+    <!-- logo -->
+    <div class="logo">
+        <img src="../../assets/logo.png" alt="logo-img" class="logo-img">
+        <h1>Interstellar <br> Date</h1>
+    </div>
+
+    <div class="signup-info-container">
+
+    <!-- Name input -->
+    <label for="name">Name</label>
+    <input type="text" name="name" placeholder="kepler x.z." id="name_input">
+
+    <!-- Email input -->
+    <label for="email">Email</label>
+    <input type="email" name="email" placeholder="kepler.xz@gmail.com" id="email_input">
+
+    <!-- Password input -->
+    <label for="password">Password</label>
+    <input type="password" placeholder="2sreQ$$" name="password" id="password_input">
+
+    <!-- Birth date input -->
+    <label for="birth_date">Birth Date</label>
+    <input type="date" name="birth_date" id="birth_date_input">
+
+    <!-- Profle Photo input -->
+    <label for="profile_photo">Profle Photo</label>
+    <input type="file" name="profile_photo" id="profile_photo_input">
+
+    <!-- Gender input -->
+    <label for="gender">Gender</label>
+    <select name="gender" id="gender_input">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="tree">Tree</option>
+    </select>
+
+    <!-- Planet input -->
+    <label for="planet">Planet</label>
+    <select name="planet" id="planet_input">
+        <option value="Earth">Earth</option>
+        <option value="Venus">Venus</option>
+        <option value="Jupiter">Jupiter</option>
+        <option value="Mercury">Mercury</option>
+        <option value="Neptune">Neptune</option>
+        <option value="Mars">Mars</option>
+        <option value="Saturn">Saturn</option>
+        <option value="Pluto">Pluto</option>
+        <option value="Uranus">Uranus</option>
+        <option value="Ceres">Ceres</option>
+        <option value="Haumea">Haumea</option>
+        <option value="Makemake">Makemake</option>
+        <option value="Eris">Eris</option>
+        <option value="Kepler-186f">Kepler-186f</option>
+        <option value="Kepler-22b">Kepler-22b</option>
+        <option value="Gliese">Gliese</option>
+        <option value="CoRoT-7b">CoRoT-7b</option>
+        <option value="Kepler-16b">Kepler-16b</option>
+    </select>
+
+    <!-- Biography input -->
+    <label for="biography">Biography</label>
+    <textarea name="biography" id="biography_input" cols="20" rows="10" placeholder="hello I'm kepler from across the galaxy. hit me up."></textarea>
+
+    </div>
+
+    <!-- login result message -->
+    <p id="login_message"></p>
+
+    <!-- Inner login button -->
+    <button class="big-btn pink" id="inner_signup_btn">Sign up</button>
+
+</form>
+
     <!-- JS SCRIPTS -->
     <script src="../js/signup.js"></script>
 </body>
