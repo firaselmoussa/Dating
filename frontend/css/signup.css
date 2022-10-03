@@ -102,6 +102,10 @@ body{
     color: rgba(255, 255, 255, 0.6);
 }
 
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .signup-info-container {
     padding: 0;
     max-height: 300px;
@@ -141,13 +145,22 @@ body{
 
 
 /* Responsivness */
-
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 430px) {
     .content-container,
-    .login-form {
-        left:0;
-        right: 0;
-        width: 100vw;
-        border: none;
+    .login-form,
+    .signup-form {
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    .content-container,
+    .login-form,
+    .signup-form {
+        left: 50%;
+        transform: translate(50% 0);
+        width: 90vw;
+        height: 100vh;
     }
 }
