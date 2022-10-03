@@ -65,23 +65,48 @@ body{
     opacity: 1;
 }
 
-/* LOGIN FORM CSS */
+/* LOGIN & SIGNUP FORM CSS */
 
 .login-form,
 .signup-form{
     display: none;
 }
 
-.login-form input {
+.login-form input,
+.signup-info-container input,
+.signup-info-container textarea,
+.signup-info-container select{
     padding: 10px;
     background: transparent;
     border: 1px solid white;
     border-radius: 5px;
     backdrop-filter: blur(10px);
     color: white;
-    margin-top: -20px;
-    min-width: fit-content;
+    margin-bottom: 20px;
+    min-width: 85%;
     width: 85%;
+    resize: none;
+}
+
+.login-form input:focus,
+.signup-info-container input:focus,
+.signup-info-container textarea:focus,
+.signup-info-container select:focus {
+    outline: none;
+}
+
+.login-form input::placeholder,
+.signup-info-container input::placeholder,
+.signup-info-container textarea::placeholder,
+.signup-info-container select::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.signup-info-container {
+    padding: 0;
+    max-height: 300px;
+    overflow-x:  hidden;
+    overflow-y: scroll;
 }
 
 #login_close_btn,
