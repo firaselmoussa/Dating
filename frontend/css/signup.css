@@ -54,6 +54,8 @@ body{
     flex-flow: wrap column;
     justify-content: space-around;
     align-items: flex-start;
+    box-shadow: inset 0 0 30px  white;
+    backdrop-filter: blur(1px);
 }
 
 .typer{
@@ -79,6 +81,8 @@ body{
     flex-flow: wrap column;
     justify-content: space-around;
     align-items: flex-start;
+    box-shadow: inset 0 0 30px white;
+    backdrop-filter: blur(1px);
 }
 
 .login-form input {
@@ -89,6 +93,8 @@ body{
     backdrop-filter: blur(10px);
     color: white;
     margin-top: -20px;
+    min-width: fit-content;
+    width: 85%;
 }
 
 #login_close_btn{
