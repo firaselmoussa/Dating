@@ -73,8 +73,14 @@ outer_signup_btn.addEventListener('click', ()=>{
 
 // CLOSING FORMS
 const login_close_btn = document.getElementById('login_close_btn');
+const signup_close_btn = document.getElementById('signup_close_btn');
 
 login_close_btn.addEventListener('click', ()=>{
     content_container.style.display = 'flex';
     login_form.style.display = 'none';
+})
+
+signup_close_btn.addEventListener('click', ()=>{
+    content_container.style.display = 'flex';
+    signup_form.style.display = 'none';
 })
