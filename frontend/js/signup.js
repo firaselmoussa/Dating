@@ -92,5 +92,9 @@ let password_input = document.getElementById('password_input');
 
 inner_login_btn.addEventListener('click', (e)=>{
     e.preventDefault();
-    console.log(email_input.value, password_input.value)
+    
+fetch(`http://localhost/interstellar_date_server/login.php?email=${email_input.value}&password=${password_input.value}`)
+	.then(response => response.json())
+	.then(data => console.log(data))
+
 })
