@@ -108,6 +108,28 @@ inner_login_btn.addEventListener('click', (e)=>{
                 login_message.innerText = data.message;
             }
             
-        })
+        });
+});
 
-})
+
+// REGISTRATION BACKEND JS
+let name_input = document.getElementById('name_input');
+let signup_email_input = document.getElementById('signup_email_input');
+let signup_password_input = document.getElementById('signup_password_input');
+let signup_message = document.getElementById('signup_message');
+let birth_date_input = document.getElementById('birth_date_input');
+let profile_photo_input = document.getElementById('profile_photo_input');
+let gender_input = document.getElementById('gender_input');
+let planet_input = document.getElementById('planet_input');
+let biography_input = document.getElementById('biography_input');
+
+// REGISTRATION 
+inner_signup_btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    
+    fetch(`http://localhost/interstellar_date_server/registration.php?name=${name_input.value}&email=${signup_email_input.value}&password=${signup_password_input.value}&birth_date=${birth_date_input.value}&profile_photo=${profile_photo_input.value}&gender=${gender_input.value}&planet=${planet_input.value}&biography=${biography_input.value}`)
+        .then(response => response.json())
+        .then((data)=>{
+            console.log(data);
+        });
+});
