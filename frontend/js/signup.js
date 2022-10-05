@@ -89,6 +89,7 @@ signup_close_btn.addEventListener('click', ()=>{
 // LOGIN BACKEND JS
 let email_input = document.getElementById('email_input');
 let password_input = document.getElementById('password_input');
+let login_message = document.getElementById('login_message');
 
 // LOGIN 
 inner_login_btn.addEventListener('click', (e)=>{
@@ -98,8 +99,14 @@ inner_login_btn.addEventListener('click', (e)=>{
         .then(response => response.json())
         .then((data)=>{
             console.log(data);
-            localStorage.setItem('logged_user_id', data['id']);
-            console.log(localStorage.getItem('logged_user_id'));
+            if(data.status){
+                localStorage.setItem('logged_user_id', data['id']);
+                console.log(localStorage.getItem('logged_user_id'));
+                login_message.innerText = '';
+            }else{
+                login_message.innerText = data.message;
+            }
+            
         })
 
 })
