@@ -97,6 +97,7 @@ inner_login_btn.addEventListener('click', (e)=>{
     fetch(`http://localhost/interstellar_date_server/login.php?email=${email_input.value}&password=${password_input.value}`)
         .then(response => response.json())
         .then((data)=>{
+            console.log(data);
             localStorage.setItem('logged_user_id', data['id']);
             console.log(localStorage.getItem('logged_user_id'));
         })

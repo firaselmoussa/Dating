@@ -33,6 +33,7 @@ if (isset($email) && isset($email)){
         if($password == $data['password']){
             $return_data['status'] = 1;
             $return_data['message'] = 'Loggedin succesfully';
+            $return_data['logged_user_id'] = $data['id'];
         }else{
             $return_data['message'] = 'wrong credentials';
         }
