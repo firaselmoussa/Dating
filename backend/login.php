@@ -1,10 +1,18 @@
 <?php
+
 include 'connection.php';
 
 
 $email = $_GET['email'];
 $password = $_GET['password'];
 
+
+// returned result
+$return_data =array(
+    "status"=> 0,
+    "message"=> ' ',
+    "id"=> ' '
+);
 
 if (isset($email) && isset($email)){
 
@@ -21,20 +29,20 @@ if (isset($email) && isset($email)){
         // getting 1st result
         $data = $data[0];
 
-        // returned result
-        $return_data =array("message"=> "Loggedin succesfully", "id"=> $data["id"]);
-
         // validating password
         if($password == $data['password']){
-            echo json_encode($return_data);
+            $return_data['status'] = 1;
+            $return_data['message'] = 'Loggedin succesfully';
         }else{
-            echo "wrong credentials";
+            $return_data['message'] = 'wrong credentials';
         }
     }else{
-        echo "no account with such email exist";
+        $return_data['message'] = 'no account with such email exist';
     }
 }else{
-    echo "empty input";
+    $return_data['message'] = 'empty input';
 }
+
+echo json_encode($return_data);
 
 ?>
