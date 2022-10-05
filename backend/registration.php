@@ -15,12 +15,27 @@ $biography = $_GET['biography'];
 
 $sql = "INSERT INTO `users`(`email`, `password`, `name`, `birth_date`, `planet`, `profile_image`, `gender`, `biography`) VALUES ('$email','$password','$name','$birth_date','$planet','$profile_photo','$gender','$biography')";
 
+$userId_sql = "SELECT  id FROM `users` WHERE email = '$email'";
+$result = mysqli_query($conn, $userId_sql);
+    
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+// returned result
+$return_data =array(
+    "status"=> 0,
+    "Message"=> "",
+    "user_id"=> $data[0]['id']
+    
+);
 
 if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    $return_data['status'] = 1;
+    $return_data['Message'] = "Signed up successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    $return_data['Message'] = "Error: " . $sql . "<br>" . $conn->error;
 }
+
+echo json_encode($return_data);
 
 $conn->close();
 
