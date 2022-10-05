@@ -102,6 +102,7 @@ inner_login_btn.addEventListener('click', (e)=>{
             if(data.status){
                 localStorage.setItem('logged_user_id', data['id']);
                 console.log(localStorage.getItem('logged_user_id'));
+                window.location = 'home.html';
                 login_message.innerText = '';
             }else{
                 login_message.innerText = data.message;
