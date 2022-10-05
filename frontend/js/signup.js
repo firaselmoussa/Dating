@@ -84,3 +84,13 @@ signup_close_btn.addEventListener('click', ()=>{
     content_container.style.display = 'flex';
     signup_form.style.display = 'none';
 })
+
+
+// LOGIN BACKEND JS
+let email_input = document.getElementById('email_input');
+let password_input = document.getElementById('password_input');
+
+inner_login_btn.addEventListener('click', (e)=>{
+    e.preventDefault();
+    console.log(email_input.value, password_input.value)
+})
