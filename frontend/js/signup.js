@@ -221,3 +221,23 @@ inner_signup_btn.addEventListener('mouseenter', ()=>{
         },10);
     };
 });
+
+// PROFILE IMAGE FRONTEND IMPROVMENT
+const new_profile_img = document.getElementById('new-profile-img');
+
+
+new_profile_img.addEventListener('click', () => {
+    profile_photo_input.click();
+});
+
+profile_photo_input.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+        const reader = new FileReader()
+        reader.onload = function () {
+        const result = reader.result;
+        new_profile_img.src = result;
+        }
+        reader.readAsDataURL(file);
+    }
+});
