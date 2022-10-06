@@ -76,3 +76,7 @@ body{
     background: var(--main-bg-color);
     scale: 1.01;
 }
+
+.required_astrik{
+    color:red;
+}

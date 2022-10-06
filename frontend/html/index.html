@@ -73,24 +73,25 @@
     <div class="signup-info-container">
 
     <!-- Name input -->
-    <label for="name">Name</label>
+    <label for="name">Name<span class="required_astrik">*</span></label>
     <input type="text" name="name" placeholder="kepler x.z." id="name_input">
 
     <!-- Email input -->
-    <label for="email">Email</label>
-    <input type="email" name="email" placeholder="kepler.xz@gmail.com" id="email_input">
+    <label for="email">Email<span class="required_astrik">*</span></label>
+    <input type="email" name="email" placeholder="kepler.xz@gmail.com" id="signup_email_input">
 
     <!-- Password input -->
-    <label for="password">Password</label>
-    <input type="password" placeholder="2sreQ$$" name="password" id="password_input">
+    <label for="password">Password<span class="required_astrik">*</span></label>
+    <input type="password" placeholder="2sreQ$$" name="password" id="signup_password_input">
 
     <!-- Birth date input -->
-    <label for="birth_date">Birth Date</label>
+    <label for="birth_date">Birth Date<span class="required_astrik">*</span></label>
     <input type="date" name="birth_date" id="birth_date_input">
 
     <!-- Profle Photo input -->
     <label for="profile_photo">Profle Photo</label>
-    <input type="file" name="profile_photo" id="profile_photo_input">
+    <input hidden type="file" name="profile_photo" id="profile_photo_input">
+    <img src="../../assets/add-img.png" alt="profile photo" class="new-profile-img" id="new-profile-img">
 
     <!-- Gender input -->
     <label for="gender">Gender</label>
@@ -130,7 +131,7 @@
     </div>
 
     <!-- login result message -->
-    <p id="login_message"></p>
+    <p id="signup_message"></p>
 
     <!-- Inner login button -->
     <button class="big-btn pink" id="inner_signup_btn">Sign up</button>

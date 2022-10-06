@@ -88,6 +88,10 @@ body{
     resize: none;
 }
 
+.signup-info-container select option{
+    background: rgba(0, 0, 0, 0.9);
+}
+
 .login-form input:focus,
 .signup-info-container input:focus,
 .signup-info-container textarea:focus,
@@ -100,6 +104,20 @@ body{
 .signup-info-container textarea::placeholder,
 .signup-info-container select::placeholder {
     color: rgba(255, 255, 255, 0.6);
+}
+
+.new-profile-img{
+    width: 85%;
+    height: 180px;
+    border-radius: 4px;
+    border: none;
+    margin: 10px 0 15px 0;
+    cursor: pointer;
+    filter: drop-shadow(0 0 1px #ffffff);
+}
+
+.new-profile-img:hover {
+    filter: drop-shadow(0 0 2px #f7f7f7);
 }
 
 ::-webkit-calendar-picker-indicator {
@@ -119,6 +137,16 @@ body{
     top:0;
     right: 8;
     cursor: pointer;
+}
+
+#login_message,
+#signup_message{
+    color:rgb(255, 0, 0);
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    border-radius: 2px;
+    width: 100%;
+    font-size: 12px;
 }
 
 /* SCROLL BAR CSS */
