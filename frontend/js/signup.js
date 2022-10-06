@@ -129,7 +129,7 @@ let signup_message = document.getElementById('signup_message');
 inner_signup_btn.addEventListener('click', (e)=>{
     e.preventDefault();
 
-    let is_valid = validate_input(name_input.value);
+    let is_valid = validate_input(name_input.value, signup_email_input.value);
 
     if(is_valid == true){
         
@@ -150,13 +150,19 @@ inner_signup_btn.addEventListener('click', (e)=>{
         }
 });
 
-// input validation
+// INPUT VALIDATION
+function validate_input(name, email){
 
-function validate_input(name){
-    if(name){
-        return true;
-    }else{
-        return "Name can't be empty";
+    is_valid = true;
+    // NAME VALIDATION
+    if(!name){
+        is_valid =  "Name can't be empty";
     }
 
+    // EMAIL VALIDATION
+    if(!email.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-z]+)$/)){
+        is_valid =  "Invalid Email";
+    }
+
+    return is_valid;
 }
