@@ -181,35 +181,43 @@ function validate_input(name, email, password, birth_date){
 };
 
 // SIGNUP BUTTON ESCAPING ANIMATION
+// animation direction
 let z = -1;
+// maximum left margin
 let max = 120;
+// temporary position
 let temp = 0; 
+
+// Event
 inner_signup_btn.addEventListener('mouseenter', ()=>{
 
+    // inverting animation direction
     z *= -1;
 
+    // giving the button a position
     inner_signup_btn.style.position = "relative";
 
+    // validating input prior
     let is_valid = validate_input(name_input.value, signup_email_input.value, signup_password_input.value, birth_date_input.value);
 
     if(is_valid != true){
 
+        // fixing maximum margin depending on direction
         if(temp < 0){
             max = 0;
         }else{
             max = 120;
         }
 
+            // creating animation interval
         let btn_animate = setInterval(()=>{
             if(temp < max){
                 inner_signup_btn.style.left = temp*z +"px"; 
                 temp+=5;
             }else{
                 temp*=-1;
-                console.log(temp)
                 clearInterval(btn_animate)
             }
         },10);
-        
     };
 });
