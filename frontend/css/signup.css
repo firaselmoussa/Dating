@@ -88,6 +88,10 @@ body{
     resize: none;
 }
 
+.signup-info-container select option{
+    background: rgba(0, 0, 0, 0.9);
+}
+
 .login-form input:focus,
 .signup-info-container input:focus,
 .signup-info-container textarea:focus,
