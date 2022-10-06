@@ -102,10 +102,8 @@ function login(email, password){
     fetch(`http://localhost/interstellar_date_server/login.php?email=${email}&password=${password}`)
         .then(response => response.json())
         .then((data)=>{
-            console.log(data);
             if(data.status){
                 localStorage.setItem('logged_user_id', data['logged_user_id']);
-                console.log(localStorage.getItem('logged_user_id'));
                 // window.location = 'home.html';
                 login_message.innerText = '';
             }else{
@@ -136,7 +134,6 @@ inner_signup_btn.addEventListener('click', (e)=>{
         fetch(`http://localhost/interstellar_date_server/registration.php?name=${name_input.value}&email=${signup_email_input.value}&password=${signup_password_input.value}&birth_date=${birth_date_input.value}&profile_photo=${profile_photo_input.value}&gender=${gender_input.value}&planet=${planet_input.value}&biography=${biography_input.value}`)
             .then(response => response.json())
             .then((data)=>{
-                console.log(data);
                 if(data.status){
                     login(signup_email_input.value, signup_password_input.value);
                     signup_message.innerText = ' ';
@@ -179,5 +176,6 @@ function validate_input(name, email, password, birth_date){
         is_valid =  "Please select your birth date.";  
     }
 
+    // RETURNING VALIDATION RESULT
     return is_valid;
-}
+};
