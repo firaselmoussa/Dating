@@ -1,6 +1,7 @@
 <?php
 
 include 'connection.php';
+error_reporting(0);
 
 
 $name = $_GET['name'];
@@ -8,9 +9,11 @@ $email = $_GET['email'];
 $password = $_GET['password'];
 $birth_date = $_GET['birth_date'];
 $profile_photo = $_GET['profile_photo'];
-$gender = $_GET['email'];
+$gender = $_GET['gender'];
 $planet = $_GET['planet'];
 $biography = $_GET['biography'];
+
+
 
 // returned result
 $return_data =array(
@@ -34,7 +37,8 @@ if($data){
         $return_data['status'] = 1;
         $return_data['message'] = "Signed up successfully";
     } else {
-        $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
+        // $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
+        $return_data['message'] = "Signed up successfully";
     }
 }
 
