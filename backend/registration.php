@@ -23,16 +23,16 @@ $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
 // returned result
 $return_data =array(
     "status"=> 0,
-    "Message"=> "",
-    "user_id"=> $data[0]['id']
+    "message"=> "",
+    "id"=> $data[0]['id']
     
 );
 
 if ($conn->query($sql) === TRUE) {
     $return_data['status'] = 1;
-    $return_data['Message'] = "Signed up successfully";
+    $return_data['message'] = "Signed up successfully";
 } else {
-    $return_data['Message'] = "Error: " . $sql . "<br>" . $conn->error;
+    $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
 }
 
 echo json_encode($return_data);

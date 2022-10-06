@@ -94,34 +94,36 @@ let login_message = document.getElementById('login_message');
 // LOGIN 
 inner_login_btn.addEventListener('click', (e)=>{
     e.preventDefault();
-    
-    fetch(`http://localhost/interstellar_date_server/login.php?email=${email_input.value}&password=${password_input.value}`)
+    login(email_input.value, password_input.value);
+});
+
+function login(email, password){
+
+    fetch(`http://localhost/interstellar_date_server/login.php?email=${email}&password=${password}`)
         .then(response => response.json())
         .then((data)=>{
             console.log(data);
             if(data.status){
                 localStorage.setItem('logged_user_id', data['id']);
                 console.log(localStorage.getItem('logged_user_id'));
-                window.location = 'home.html';
+                // window.location = 'home.html';
                 login_message.innerText = '';
             }else{
                 login_message.innerText = data.message;
             }
-            
         });
-});
-
+};
 
 // REGISTRATION BACKEND JS
 let name_input = document.getElementById('name_input');
 let signup_email_input = document.getElementById('signup_email_input');
 let signup_password_input = document.getElementById('signup_password_input');
-let signup_message = document.getElementById('signup_message');
 let birth_date_input = document.getElementById('birth_date_input');
 let profile_photo_input = document.getElementById('profile_photo_input');
 let gender_input = document.getElementById('gender_input');
 let planet_input = document.getElementById('planet_input');
 let biography_input = document.getElementById('biography_input');
+let signup_message = document.getElementById('signup_message');
 
 // REGISTRATION 
 inner_signup_btn.addEventListener('click', (e)=>{
@@ -131,5 +133,10 @@ inner_signup_btn.addEventListener('click', (e)=>{
         .then(response => response.json())
         .then((data)=>{
             console.log(data);
+            if(data.status){
+                login(signup_email_input.value, signup_password_input.value);
+            }else{
+                signup_message.innerText = data.message;
+            }
         });
 });
