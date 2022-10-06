@@ -12,27 +12,30 @@ $gender = $_GET['email'];
 $planet = $_GET['planet'];
 $biography = $_GET['biography'];
 
-
-$sql = "INSERT INTO `users`(`email`, `password`, `name`, `birth_date`, `planet`, `profile_image`, `gender`, `biography`) VALUES ('$email','$password','$name','$birth_date','$planet','$profile_photo','$gender','$biography')";
-
-$userId_sql = "SELECT  id FROM `users` WHERE email = '$email'";
-$result = mysqli_query($conn, $userId_sql);
-    
-$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
-
 // returned result
 $return_data =array(
     "status"=> 0,
     "message"=> "",
-    "id"=> $data[0]['id']
-    
+    "id"=> ""
 );
 
-if ($conn->query($sql) === TRUE) {
-    $return_data['status'] = 1;
-    $return_data['message'] = "Signed up successfully";
-} else {
-    $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
+// check_email_availability_query 
+$check_email_availability_query = "SELECT  email FROM `users` WHERE email = '$email'";
+
+$result = mysqli_query($conn, $check_email_availability_query);
+$data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+if($data){
+    $return_data['message'] = "Email is already used!";
+}else{
+
+    $sql = "INSERT INTO `users`(`email`, `password`, `name`, `birth_date`, `planet`, `profile_image`, `gender`, `biography`) VALUES ('$email','$password','$name','$birth_date','$planet','$profile_photo','$gender','$biography')";
+
+    if ($conn->query($sql) === TRUE) {
+        $return_data['status'] = 1;
+        $return_data['message'] = "Signed up successfully";
+    } else {
+        $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 echo json_encode($return_data);
