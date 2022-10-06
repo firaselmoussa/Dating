@@ -129,7 +129,7 @@ let signup_message = document.getElementById('signup_message');
 inner_signup_btn.addEventListener('click', (e)=>{
     e.preventDefault();
 
-    let is_valid = validate_input(name_input.value, signup_email_input.value);
+    let is_valid = validate_input(name_input.value, signup_email_input.value, signup_password_input.value);
 
     if(is_valid == true){
         
@@ -151,7 +151,7 @@ inner_signup_btn.addEventListener('click', (e)=>{
 });
 
 // INPUT VALIDATION
-function validate_input(name, email){
+function validate_input(name, email, password){
 
     is_valid = true;
     // NAME VALIDATION
@@ -162,6 +162,16 @@ function validate_input(name, email){
     // EMAIL VALIDATION
     if(!email.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-z]+)$/)){
         is_valid =  "Invalid Email";
+    }
+
+    // PASSWORD VALIDATION
+    if (!password.length >= 8 ||
+        !password.match(/[A-Z]/) ||
+        !password.match(/[a-z]/) ||
+        !password.match(/[0-9]/) ||
+        !password.match(/[\'^�$%&*()}{@#~?><>,|=_+�-]/)) {
+        
+            is_valid =  "Password should include: 8 characters, Upper case, Lower case, numbers & special characters";   
     }
 
     return is_valid;
