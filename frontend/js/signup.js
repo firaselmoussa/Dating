@@ -179,3 +179,37 @@ function validate_input(name, email, password, birth_date){
     // RETURNING VALIDATION RESULT
     return is_valid;
 };
+
+// SIGNUP BUTTON ESCAPING ANIMATION
+let z = -1;
+let max = 120;
+let temp = 0; 
+inner_signup_btn.addEventListener('mouseenter', ()=>{
+
+    z *= -1;
+
+    inner_signup_btn.style.position = "relative";
+
+    let is_valid = validate_input(name_input.value, signup_email_input.value, signup_password_input.value, birth_date_input.value);
+
+    if(is_valid != true){
+
+        if(temp < 0){
+            max = 0;
+        }else{
+            max = 120;
+        }
+
+        let btn_animate = setInterval(()=>{
+            if(temp < max){
+                inner_signup_btn.style.left = temp*z +"px"; 
+                temp+=5;
+            }else{
+                temp*=-1;
+                console.log(temp)
+                clearInterval(btn_animate)
+            }
+        },10);
+        
+    };
+});
