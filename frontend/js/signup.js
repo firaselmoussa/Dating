@@ -129,7 +129,7 @@ let signup_message = document.getElementById('signup_message');
 inner_signup_btn.addEventListener('click', (e)=>{
     e.preventDefault();
 
-    let is_valid = validate_input(name_input.value, signup_email_input.value, signup_password_input.value);
+    let is_valid = validate_input(name_input.value, signup_email_input.value, signup_password_input.value, birth_date_input.value);
 
     if(is_valid == true){
         
@@ -151,7 +151,7 @@ inner_signup_btn.addEventListener('click', (e)=>{
 });
 
 // INPUT VALIDATION
-function validate_input(name, email, password){
+function validate_input(name, email, password, birth_date){
 
     is_valid = true;
     // NAME VALIDATION
@@ -172,6 +172,11 @@ function validate_input(name, email, password){
         !password.match(/[\'^�$%&*()}{@#~?><>,|=_+�-]/)) {
         
             is_valid =  "Password should include: 8 characters, Upper case, Lower case, numbers & special characters";   
+    }
+    
+    // BIRTH DATE VALIDATION
+    if(!birth_date){
+        is_valid =  "Please select your birth date.";  
     }
 
     return is_valid;
