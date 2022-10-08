@@ -63,19 +63,25 @@ const user_gender = document.getElementById('user_gender');
 const user_planet = document.getElementById('user_planet');
 const user_biography = document.getElementById('user_biography');
 const user_profile_img = document.getElementById('user_profile_img');
+let user_index = 0;
+let current_date = new Date().getFullYear();
+// NEXT & LIKE USERS
+const x_user = document.getElementById('x_user');
+const like_user = document.getElementById('like_user');
 
 function render_users(data){
-    console.log(data.length);
-    let user_index = 0;
-
-    let current_date = new Date().getFullYear();
-    let age = current_date -  parseInt(data[0].birth_date); 
+    
+    let max_user_index = data.length;
+    
+    let age = current_date -  parseInt(data[user_index].birth_date); 
 
     // inserting user data
-    user_name.innerText = data[0].name;
+    user_name.innerText = data[user_index].name;
     user_age.innerText = age;
-    user_gender.innerText = data[0].gender;
-    user_planet.innerText = data[0].planet;
-    user_biography.innerText = data[0].biography;
-    user_profile_img.src = data[0].profile_image;
+    user_gender.innerText = data[user_index].gender;
+    user_planet.innerText = data[user_index].planet;
+    user_biography.innerText = data[user_index].biography;
+    user_profile_img.src = data[user_index].profile_image;
+
+
 }
