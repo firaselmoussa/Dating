@@ -106,6 +106,18 @@ body {
     filter: brightness(.5);
 }
 
+/* folter drop-down */
+.filter-dropdown{
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    top:10%;
+    right: 5%;
+    z-index: 2;
+    background-color: red;
+    padding: 5px;
+}
+
 /* user info */
 .user-info{
     position: fixed;
