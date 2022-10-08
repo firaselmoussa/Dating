@@ -64,4 +64,9 @@ body {
     border: 1px solid red;
 }
 
+.info-header{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+}
 
