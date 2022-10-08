@@ -21,7 +21,7 @@ if(isset($_POST['min_age'])){
     $current_date = date("Y-m-d");
     $min_birth_date = ($current_date - $min_age)."-".date("m")."-".date("d");
 }else{
-    $min_birth_date = '0';
+    $min_birth_date = '0000-00-00';
 }
 
 // calculating maximum birthdate
@@ -30,7 +30,7 @@ if(isset($_POST['max_age'])){
     $current_date = date("Y-m-d");
     $min_birth_date = ($current_date - $max_age)."-".date("m")."-".date("d");
 }else{
-    $max_birth_date = '100';
+    $max_birth_date = '3000-00-00';
 }
 
 $sql = "SELECT * FROM `users` WHERE `planet` = 'earth' AND `gender` = '$gender' AND birth_date > '$min_birth_date' AND birth_date < '$max_birth_date' ORDER BY `birth_date` DESC";
