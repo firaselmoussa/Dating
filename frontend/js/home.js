@@ -32,3 +32,18 @@ max_age_filter.setAttribute('max_age', max_age_filter.value);
 max_age_filter.addEventListener('input', ()=>{
     max_age_filter.setAttribute('max_age', max_age_filter.value);
 });
+
+
+
+// FETCHING USERS
+
+let planet_var = 'earth';
+let gender_var = 'female';
+let min_age_var = 0;
+let max_age_var = 100;
+
+fetch(`http://localhost/interstellar_date_server/users.php?planet=${planet_var}&gender=${gender_var}&min_age=${min_age_var}&max_age=${max_age_var}`)
+.then(response => response.json())
+.then((data)=>{
+    console.log(data)
+});
