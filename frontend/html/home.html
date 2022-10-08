@@ -17,138 +17,142 @@
     <!-- background image -->
     <img src="../../assets/planet-bg.avif" alt="planet-bg" class="planet-bg">
 
-    <!-- Cards container -->
-    <div class="cards-container">
+    <div class="home-container">
 
-        <!-- header -->
-        <div class="card-header">
+        <div class="home-links"></div>
 
-            <!-- logo -->
-            <div class="logo">
-                <img src="../../assets/logo.png" alt="logo-img" class="logo-img">
-                <h1>Interstellar <br> Date</h1>
+        <!-- Cards container -->
+        <div class="cards-container">
+
+            <!-- header -->
+            <div class="card-header">
+
+                <!-- logo -->
+                <div class="logo">
+                    <img src="../../assets/logo.png" alt="logo-img" class="logo-img">
+                    <h1>Interstellar <br> Date</h1>
+                </div>
+
+                <!-- icons -->
+                <div class="icons-div">
+                    <div class="search-div">
+                    <i class="material-icons">search</i>
+                    <input type="text" name="search" id="search_input" placeholder="user name..">
+                </div>
+                    <i class="material-icons" id="filter_drop_down_btn">sort</i>
+                </div>
+
             </div>
 
-            <!-- icons -->
-            <div class="icons-div">
-                <div class="search-div">
-                <i class="material-icons">search</i>
-                <input type="text" name="search" id="search_input" placeholder="user name..">
+            <!-- filter drop-down -->
+            <div class="filter-dropdown">
+
+                <!-- filter by gender -->
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender_filter">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Tree">Tree</option>
+                </select>
+
+                <br>
+
+                <!-- filter by planet -->
+                <label for="planet_filter">Planet</label>
+                <select name="planet_filter" id="planet_filter">
+                    <option value="Earth">Earth</option>
+                    <option value="Venus">Venus</option>
+                    <option value="Jupiter">Jupiter</option>
+                    <option value="Mercury">Mercury</option>
+                    <option value="Neptune">Neptune</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Pluto">Pluto</option>
+                    <option value="Uranus">Uranus</option>
+                    <option value="Ceres">Ceres</option>
+                    <option value="Haumea">Haumea</option>
+                    <option value="Makemake">Makemake</option>
+                    <option value="Eris">Eris</option>
+                    <option value="Kepler-186f">Kepler-186f</option>
+                    <option value="Kepler-22b">Kepler-22b</option>
+                    <option value="Gliese">Gliese</option>
+                    <option value="CoRoT-7b">CoRoT-7b</option>
+                    <option value="Kepler-16b">Kepler-16b</option>
+                </select>
+
+                <br>
+
+                <!-- filter by age -->
+                <label for="age_filter">Age</label>
+
+                <input type="range" name="age_filter" id="min_age_filter" class="min-age-filter" value="0">
+    <br>
+                <input type="range" name="age_filter" id="max_age_filter" max="99" class="max-age-filter" value="99">
+
+                <br>
+
+                <button class="apply_filter" id="apply_filter">Apply</button>
+
             </div>
-                <i class="material-icons" id="filter_drop_down_btn">sort</i>
+
+            <!-- user profile photo -->
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4c8b83cb-a680-4fde-84f3-5aca1726b479/dcyzqyw-ff027d85-807d-4829-8056-0f96e4634151.png/v1/fill/w_915,h_873,q_70,strp/alien_girl_by_gatokumn_dcyzqyw-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQzMiIsInBhdGgiOiJcL2ZcLzRjOGI4M2NiLWE2ODAtNGZkZS04NGYzLTVhY2ExNzI2YjQ3OVwvZGN5enF5dy1mZjAyN2Q4NS04MDdkLTQ4MjktODA1Ni0wZjk2ZTQ2MzQxNTEucG5nIiwid2lkdGgiOiI8PTE1MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.jBG2o7wqw05Fme4r54BRb5ss0MTeKypGz4sTTtspn5U" alt="user profile photo" class="user-profile-img" id="user_profile_img">
+
+            <!-- user info -->
+            <div class="user-info">
+
+                <div class="info-header">
+                    <h3 class="user-name" id="user_name">User Name</h3>
+                    <h4>
+                        <span id="user_age">20</span> Years old
+                        <span id="user_gender">Female</span> 
+                        From <span id="user_planet">Kepler</span> 
+                    </h4>
+                </div>
+
+                <p class="user-biography" id="user_biography">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
+                    
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
+                    nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
+                    
+                    Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
+                    pariatur facilis fugit velit laborum.
+
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
+                    
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
+                    nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
+                    
+                    Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
+                    pariatur facilis fugit velit laborum.
+
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
+                    
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
+                    nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
+                    
+                    Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
+                    pariatur facilis fugit velit laborum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
+                    
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
+                    nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
+                    
+                    Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
+                    pariatur facilis fugit velit laborum.
+
+                </p>
+            </div>
+
+            <!-- card footer -->
+            <div class="card-footer">
+                <i class="material-icons">clear</i>
+                <i class="material-icons">favorite</i>
             </div>
 
         </div>
-
-        <!-- filter drop-down -->
-        <div class="filter-dropdown">
-
-            <!-- filter by gender -->
-            <label for="gender">Gender</label>
-            <select name="gender" id="gender_filter">
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Tree">Tree</option>
-            </select>
-
-            <br>
-
-            <!-- filter by planet -->
-            <label for="planet_filter">Planet</label>
-            <select name="planet_filter" id="planet_filter">
-                <option value="Earth">Earth</option>
-                <option value="Venus">Venus</option>
-                <option value="Jupiter">Jupiter</option>
-                <option value="Mercury">Mercury</option>
-                <option value="Neptune">Neptune</option>
-                <option value="Mars">Mars</option>
-                <option value="Saturn">Saturn</option>
-                <option value="Pluto">Pluto</option>
-                <option value="Uranus">Uranus</option>
-                <option value="Ceres">Ceres</option>
-                <option value="Haumea">Haumea</option>
-                <option value="Makemake">Makemake</option>
-                <option value="Eris">Eris</option>
-                <option value="Kepler-186f">Kepler-186f</option>
-                <option value="Kepler-22b">Kepler-22b</option>
-                <option value="Gliese">Gliese</option>
-                <option value="CoRoT-7b">CoRoT-7b</option>
-                <option value="Kepler-16b">Kepler-16b</option>
-            </select>
-
-            <br>
-
-            <!-- filter by age -->
-            <label for="age_filter">Age</label>
-
-            <input type="range" name="age_filter" id="min_age_filter" class="min-age-filter" value="0">
-<br>
-            <input type="range" name="age_filter" id="max_age_filter" max="99" class="max-age-filter" value="99">
-
-            <br>
-
-            <button class="apply_filter" id="apply_filter">Apply</button>
-
-        </div>
-
-        <!-- user profile photo -->
-        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4c8b83cb-a680-4fde-84f3-5aca1726b479/dcyzqyw-ff027d85-807d-4829-8056-0f96e4634151.png/v1/fill/w_915,h_873,q_70,strp/alien_girl_by_gatokumn_dcyzqyw-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTQzMiIsInBhdGgiOiJcL2ZcLzRjOGI4M2NiLWE2ODAtNGZkZS04NGYzLTVhY2ExNzI2YjQ3OVwvZGN5enF5dy1mZjAyN2Q4NS04MDdkLTQ4MjktODA1Ni0wZjk2ZTQ2MzQxNTEucG5nIiwid2lkdGgiOiI8PTE1MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.jBG2o7wqw05Fme4r54BRb5ss0MTeKypGz4sTTtspn5U" alt="user profile photo" class="user-profile-img" id="user_profile_img">
-
-        <!-- user info -->
-        <div class="user-info">
-
-            <div class="info-header">
-                <h3 class="user-name" id="user_name">User Name</h3>
-                <h4>
-                    <span id="user_age">20</span> Years old
-                    <span id="user_gender">Female</span> 
-                    From <span id="user_planet">Kepler</span> 
-                </h4>
-            </div>
-
-            <p class="user-biography" id="user_biography">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
-                
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
-                nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
-                
-                Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
-                pariatur facilis fugit velit laborum.
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
-                
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
-                nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
-                
-                Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
-                pariatur facilis fugit velit laborum.
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
-                
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
-                nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
-                
-                Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
-                pariatur facilis fugit velit laborum.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, est.
-                
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit, explicabo quia? Odit voluptatibus eos veniam asperiores,
-                nam culpa maxime, corporis alias unde, ad enim quasi pariatur facilis fugit velit laborum.
-                
-                Odit, explicabo quia? Odit voluptatibus eos veniam asperiores, nam culpa maxime, corporis alias unde, ad enim quasi
-                pariatur facilis fugit velit laborum.
-
-            </p>
-        </div>
-
-        <!-- card footer -->
-        <div class="card-footer">
-            <i class="material-icons">clear</i>
-            <i class="material-icons">favorite</i>
-        </div>
-
 
     </div>
-
 
     <script src="../js/home.js"></script>
 </body>
