@@ -33,7 +33,7 @@ if(isset($_POST['max_age'])){
     $max_birth_date = '100';
 }
 
-$sql = "SELECT * FROM `users` WHERE `planet` = 'earth' AND `gender` = '$gender' AND birth_date > '$min_birth_date' AND birth_date < '$max_birth_date'";
+$sql = "SELECT * FROM `users` WHERE `planet` = 'earth' AND `gender` = '$gender' AND birth_date > '$min_birth_date' AND birth_date < '$max_birth_date' ORDER BY `birth_date` DESC";
 
 $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
