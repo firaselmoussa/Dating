@@ -21,7 +21,7 @@ body {
     width: 600px;
     height: fit-content;
     min-height: 90vh;
-    padding: 5px 15px;
+    padding: 0px ;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -39,9 +39,11 @@ body {
 
 .logo{
     position: fixed;
-    top:5%;
-    left:5%;
+    top:2%;
+    left:0%;
+    scale: .8;
 }
+
 .user-profile-img{
     position: fixed;
     top:0;
@@ -52,5 +54,14 @@ body {
     filter: brightness(.5);
 }
 
+/* user info */
+.user-info{
+    position: fixed;
+    top:15%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    border: 1px solid red;
+}
 
 
