@@ -61,16 +61,20 @@ body {
     left: 5%;
     width: 90%;
     height: 80%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
+    overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .info-header{
     display: flex;
     flex-flow: wrap row;
     justify-content: space-between;
+    margin-top: 50%;
 }
 
 .user-biography{
     font-size: 14px;
     margin-top: 5%;
+    opacity: .8;
 }
