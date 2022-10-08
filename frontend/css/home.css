@@ -156,6 +156,72 @@ body {
     filter: drop-shadow(0 0 1px white)
 }
 
+
+.min-age-filter,
+.max-age-filter{
+    -webkit-appearance: none;
+    height: 2px;
+    border-radius: 5px;
+    background: white;
+    -webkit-transition: .01s;
+    transition:  .01s;
+    position: absolute;
+}
+
+.min-age-filter{
+    margin-top: 10px;
+    z-index: 1;
+}
+
+.max-age-filter {
+    right: 0px;
+    margin-top: -10px;
+    background: transparent;
+    z-index: 1;
+}
+
+.max-age-filter::-webkit-slider-thumb,
+.min-age-filter::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: white;
+    border: 1px solid var(--minor-txt-color)
+}
+
+.max-age-filter::-webkit-slider-thumb {
+    margin-top: -2px;
+    background: var(--minor-txt-color);
+    border: 1px solid white;
+}
+
+.min-age-filter::before {
+    content: attr(min_age);
+    border-radius: 50%;
+    width: fit-content;
+    height: fit-content;
+    background: white;
+    color: var(--minor-txt-color);
+    padding: 2px 5px;
+    position: relative;
+    top: -5px;
+}
+
+.max-age-filter::after {
+    content: attr(max_age);
+    border-radius:50%;
+    width: fit-content;
+    height: fit-content;
+    background: white;
+    color: var(--minor-txt-color);
+    padding: 2px 5px;
+    position: relative;
+    top:-5px
+}
+
 /* user info */
 .user-info{
     position: fixed;
