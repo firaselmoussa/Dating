@@ -62,6 +62,7 @@ const user_age = document.getElementById('user_age');
 const user_gender = document.getElementById('user_gender');
 const user_planet = document.getElementById('user_planet');
 const user_biography = document.getElementById('user_biography');
+const user_profile_img = document.getElementById('user_profile_img');
 
 function render_users(data){
     console.log(data.length);
@@ -76,4 +77,5 @@ function render_users(data){
     user_gender.innerText = data[0].gender;
     user_planet.innerText = data[0].planet;
     user_biography.innerText = data[0].biography;
+    user_profile_img.src = data[0].profile_image;
 }
