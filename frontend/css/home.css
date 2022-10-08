@@ -110,7 +110,7 @@ body {
 .filter-dropdown{
     display: none;
     clip-path: polygon(90% 10%, 100% 0, 100% 100%, 0 100%, 0 10%);
-    padding: 5px;
+    padding: 5px 15px;
     padding-top: 40px;
     width: fit-content;
     height: fit-content;
@@ -156,7 +156,6 @@ body {
     filter: drop-shadow(0 0 1px white)
 }
 
-
 .min-age-filter,
 .max-age-filter{
     -webkit-appearance: none;
@@ -166,6 +165,7 @@ body {
     -webkit-transition: .01s;
     transition:  .01s;
     position: absolute;
+    margin: 0 12px;
 }
 
 .min-age-filter{
@@ -189,7 +189,7 @@ body {
     border-radius: 50%;
     cursor: pointer;
     background: white;
-    border: 1px solid var(--minor-txt-color)
+    border: 1px solid var(--minor-txt-color);
 }
 
 .max-age-filter::-webkit-slider-thumb {
@@ -207,7 +207,7 @@ body {
     color: var(--minor-txt-color);
     padding: 2px 5px;
     position: relative;
-    top: -5px;
+    top: -6px;
 }
 
 .max-age-filter::after {
@@ -219,7 +219,7 @@ body {
     color: var(--minor-txt-color);
     padding: 2px 5px;
     position: relative;
-    top:-5px
+    top:-8px
 }
 
 /* user info */
