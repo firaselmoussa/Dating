@@ -37,11 +37,63 @@ body {
     backdrop-filter: blur(1px);
 }
 
-.logo{
+.card-header{
     position: fixed;
     top:2%;
     left:0%;
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    padding-right: 0 5%;
+}
+
+.logo{
     scale: .8;
+}
+
+.icons-div{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.icons-div i {
+    cursor: pointer;
+}
+
+.icons-div i:hover {
+    filter: drop-shadow(0 0 1px white);
+}
+
+.icons-div i:nth-child(2){
+    margin-top: 5px;
+}
+
+.search-div{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: space-between;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 5px 10px;
+}
+
+.search-div input{
+    background: transparent;
+    border: none;
+    color: white;
+    margin-left: 5px;
+}
+
+.search-div input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-div input:focus {
+    outline: none;
 }
 
 .user-profile-img{
@@ -59,11 +111,11 @@ body {
     position: fixed;
     top:15%;
     left: 5%;
-    width: 90%;
+    width: 87%;
     height: 80%;
-    /* border: 1px solid red; */
     overflow-x: hidden;
     overflow-y: scroll;
+    padding-right: 3% ;
 }
 
 .info-header{
