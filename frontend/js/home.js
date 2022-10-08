@@ -1,3 +1,4 @@
+let users_data;  
 // filter drop-down js
 const filter_dropdown = document.querySelector('.filter-dropdown');
 const filter_drop_down_btn = document.getElementById('filter_drop_down_btn');
@@ -41,13 +42,13 @@ max_age_filter.addEventListener('input', ()=>{
 
 
 // FETCHING USERS
-
 function fetch_filtered_users(planet, gender, min_age, max_age){
 
     fetch(`http://localhost/interstellar_date_server/users.php?planet=${planet}&gender=${gender}&min_age=${min_age}&max_age=${max_age}`)
     .then(response => response.json())
     .then((data)=>{
-        render_users(data);
+        users_data = data;
+        render_users(data, 0);
         console.log(data)
     });
 
@@ -69,19 +70,28 @@ let current_date = new Date().getFullYear();
 const x_user = document.getElementById('x_user');
 const like_user = document.getElementById('like_user');
 
-function render_users(data){
+// RENDER USERS
+function render_users(data, index){
     
-    let max_user_index = data.length;
-    
-    let age = current_date -  parseInt(data[user_index].birth_date); 
-
+    let age = current_date -  parseInt(data[index].birth_date); 
     // inserting user data
-    user_name.innerText = data[user_index].name;
+    user_name.innerText = data[index].name;
     user_age.innerText = age;
-    user_gender.innerText = data[user_index].gender;
-    user_planet.innerText = data[user_index].planet;
-    user_biography.innerText = data[user_index].biography;
-    user_profile_img.src = data[user_index].profile_image;
-
+    user_gender.innerText = data[index].gender;
+    user_planet.innerText = data[index].planet;
+    user_biography.innerText = data[index].biography;
+    user_profile_img.src = data[index].profile_image;
 
 }
+
+    // NEXT USER
+    x_user.addEventListener('click', ()=>{
+
+        if(user_index < 2){
+            user_index += 1;
+        }else{
+            user_index = 0;
+        }
+        
+        render_users(users_data, user_index);
+    })
