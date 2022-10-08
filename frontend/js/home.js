@@ -47,6 +47,7 @@ function fetch_filtered_users(planet, gender, min_age, max_age){
     fetch(`http://localhost/interstellar_date_server/users.php?planet=${planet}&gender=${gender}&min_age=${min_age}&max_age=${max_age}`)
     .then(response => response.json())
     .then((data)=>{
+        render_users(data);
         console.log(data)
     });
 
@@ -54,3 +55,25 @@ function fetch_filtered_users(planet, gender, min_age, max_age){
 
 // initial fetch
 fetch_filtered_users('earth', 'male', 0, 100);
+
+// RENDERING USERS
+const user_name = document.getElementById('user_name');
+const user_age = document.getElementById('user_age');
+const user_gender = document.getElementById('user_gender');
+const user_planet = document.getElementById('user_planet');
+const user_biography = document.getElementById('user_biography');
+
+function render_users(data){
+    console.log(data.length);
+    let user_index = 0;
+
+    let current_date = new Date().getFullYear();
+    let age = current_date -  parseInt(data[0].birth_date); 
+
+    // inserting user data
+    user_name.innerText = data[0].name;
+    user_age.innerText = age;
+    user_gender.innerText = data[0].gender;
+    user_planet.innerText = data[0].planet;
+    user_biography.innerText = data[0].biography;
+}
