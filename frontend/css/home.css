@@ -112,7 +112,7 @@ body {
     top:15%;
     left: 5%;
     width: 87%;
-    height: 80%;
+    height: 70%;
     overflow-x: hidden;
     overflow-y: scroll;
     padding-right: 3% ;
@@ -129,4 +129,28 @@ body {
     font-size: 14px;
     margin-top: 5%;
     opacity: .8;
+}
+
+/* card footer */
+.card-footer {
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    display: flex;
+    flex-wrap: wrap row;
+    justify-content: space-between;
+}
+
+.card-footer i{
+    font-size: 40px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.card-footer i:hover {
+    filter: drop-shadow(0 0 1px white);
 }
