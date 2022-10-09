@@ -82,7 +82,6 @@ function fetch_filtered_users(planet, gender, min_age, max_age){
     .then((data)=>{
         users_data = data;
         render_users(data, 0);
-        console.log(data)
     });
 
 };
@@ -94,9 +93,7 @@ function fetch_searched_users(name){
     .then((data)=>{
         users_data = data;
         render_users(data, 0);
-        console.log(data)
     });
-
 };
 
 // initial fetch
@@ -114,9 +111,26 @@ window.addEventListener('load', ()=>{
 
 // SEARCH USER
 const search_input = document.getElementById('search_input');
+const search_result = document.getElementById('search_result');
 
 search_input.addEventListener('input', ()=>{
-    fetch_searched_users(search_input.value)
+    fetch_searched_users(search_input.value);
+
+    // render search result count
+    search_result.innerText = `${users_data.length} results`;
+
+    // color result
+    if(users_data.length > 0){
+        search_result.style.color = 'rgb(0, 200, 0)';
+    }else{
+        search_result.style.color = 'red';
+    }
+
+    // empty result
+    if(!search_input.value){
+        search_result.innerText = ' ';
+    }
+
 });
 
 

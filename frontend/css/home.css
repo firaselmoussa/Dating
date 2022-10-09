@@ -1,5 +1,4 @@
 /* RESET */
-
 * {
     margin: 0;
     padding: 0;
@@ -140,6 +139,14 @@ body {
     outline: none;
 }
 
+#search_result{
+    color:attr(search_result_color);
+    font-size: 10px;
+    position: absolute;
+    margin-left: 140px;
+    margin-top: 32px;
+}
+
 .user-profile-img{
     position: fixed;
     top:0;
@@ -150,7 +157,7 @@ body {
     filter: brightness(.5);
 }
 
-/* folter drop-down */
+/* filter drop-down */
 .filter-dropdown{
     display: none;
     clip-path: polygon(90% 10%, 100% 0, 100% 100%, 0 100%, 0 10%);
