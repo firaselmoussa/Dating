@@ -396,3 +396,36 @@ body {
     }
 
 }
+
+/* LOUNGE CSS */
+.lounge-cards{
+    width:87%;
+    height:100%;
+    display: flex;
+    flex-flow: wrap column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5px;
+    /* overflow: hidden; */
+}
+
+.liked_by_user,
+.liked_user,
+.matched{
+    display: flex;
+    flex-flow: wrap row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: fit-content;
+    max-width: 112%;
+    min-height: 26vh;
+    background: rgba(255, 255, 255, 0.2);
+    overflow-x: scroll;
+    border-radius: 3px;
+}
+
+.liked_by_user::-webkit-scrollbar,
+.liked_user::-webkit-scrollbar,
+.matched::-webkit-scrollbar {
+    height: 3px;
+}

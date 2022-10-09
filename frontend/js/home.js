@@ -1,3 +1,23 @@
+// SECTIONS TOGGLING
+const cards_container = document.querySelector('.cards-container');
+const card_users = document.getElementById('card-users');
+const lounge_btn = document.getElementById('lounge_btn');
+// lounge html
+const lounge_cards = `<div class="lounge-cards">
+                        <h4>Liked :)</h4>
+                        <div class="liked_by_user"></div>
+                        <h4>Liked Me ;)</h4>
+                        <div class="liked_user"></div>
+                        <h4>Matches ^_^</h4>
+                        <div class="matched"></div>
+                    </div>`;
+
+
+lounge_btn.addEventListener('click', ()=>{
+    cards_container.innerHTML = lounge_cards;
+})
+
+// HOME-USERS JS
 let logged_user_id = localStorage.getItem('logged_user_id');
 let rendered_user_id;
 let users_data;  
