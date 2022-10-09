@@ -1,4 +1,7 @@
+let logged_user_id = localStorage.getItem('logged_user_id');
+let rendered_user_id;
 let users_data;  
+
 // filter drop-down js
 const filter_dropdown = document.querySelector('.filter-dropdown');
 const filter_drop_down_btn = document.getElementById('filter_drop_down_btn');
@@ -112,17 +115,33 @@ function render_users(data, index){
     user_biography.innerText = data[index].biography;
     user_profile_img.src = data[index].profile_image;
 
+    // update rendered user id
+    rendered_user_id = data[index].id;
 }
 
-    // NEXT USER
-    x_user.addEventListener('click', ()=>{
+// NEXT USER
+x_user.addEventListener('click', ()=>{
 
-        if(user_index < users_data.length-1){
-            user_index += 1;
-        }else{
-            user_index = 0;
-        }
-        
-        render_users(users_data, user_index);
-    })
+    if(user_index < users_data.length-1){
+        user_index += 1;
+    }else{
+        user_index = 0;
+    }
+    
+    // rendering the next user
+    render_users(users_data, user_index);
+})
 
+
+// Like user
+like_user.addEventListener('click', ()=>{
+        fetch(`http://localhost/interstellar_date_server/like_user.php?user_id=${logged_user_id}&liked_user_id=${rendered_user_id}`)
+        .then(response => response.json())
+        .then((data)=>{
+            let like_result = data;
+            console.log(like_result)
+        });
+
+        // passing to the next user
+        x_user.click();
+})
