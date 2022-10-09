@@ -15,14 +15,14 @@ filter_drop_down_btn.addEventListener('click', ()=>{
     }else{
         filter_dropdown.style.display = 'none';
     }
-})
+});
 
 // Apply filters
 apply_filter.addEventListener('click', ()=>{
     filter_dropdown.style.display = 'none';
 
     fetch_filtered_users(planet_filter.value, gender_filter.value, min_age_filter.value, max_age_filter.value);
-})
+});
 
 // age range
 const min_age_filter = document.getElementById('min_age_filter');
@@ -47,7 +47,7 @@ max_age_filter.addEventListener('input', ()=>{
 // filter fetch
 function fetch_filtered_users(planet, gender, min_age, max_age){
 
-    fetch(`http://localhost/interstellar_date_server/users.php?planet=${planet}&gender=${gender}&min_age=${min_age}&max_age=${max_age}`)
+    fetch(`http://localhost/interstellar_date_server/users.php?planet=${planet}&gender=${gender}&min_age=${min_age}&max_age=${max_age}&logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
         users_data = data;
@@ -55,11 +55,11 @@ function fetch_filtered_users(planet, gender, min_age, max_age){
         console.log(data)
     });
 
-}
+};
 // search fetch
 function fetch_searched_users(name){
 
-    fetch(`http://localhost/interstellar_date_server/search_user.php?user_name=${name}`)
+    fetch(`http://localhost/interstellar_date_server/search_user.php?user_name=${name}&logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
         users_data = data;
@@ -67,19 +67,19 @@ function fetch_searched_users(name){
         console.log(data)
     });
 
-}
+};
 
 // initial fetch
 // fetch_filtered_users('', '', '', '');
 window.addEventListener('load', ()=>{
-    fetch(`http://localhost/interstellar_date_server/search_user.php`)
+    fetch(`http://localhost/interstellar_date_server/search_user.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
         users_data = data;
         render_users(data, 0);
         console.log(data)
     });
-})
+});
 
 
 // SEARCH USER
@@ -87,7 +87,7 @@ const search_input = document.getElementById('search_input');
 
 search_input.addEventListener('input', ()=>{
     fetch_searched_users(search_input.value)
-})
+});
 
 
 // RENDERING USERS
@@ -117,7 +117,7 @@ function render_users(data, index){
 
     // update rendered user id
     rendered_user_id = data[index].id;
-}
+};
 
 // NEXT USER
 x_user.addEventListener('click', ()=>{
@@ -130,7 +130,7 @@ x_user.addEventListener('click', ()=>{
     
     // rendering the next user
     render_users(users_data, user_index);
-})
+});
 
 
 // Like user
@@ -144,4 +144,4 @@ like_user.addEventListener('click', ()=>{
 
         // passing to the next user
         x_user.click();
-})
+});
