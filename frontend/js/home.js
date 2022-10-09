@@ -67,7 +67,17 @@ function fetch_searched_users(name){
 }
 
 // initial fetch
-fetch_filtered_users('earth', 'male', 0, 100);
+// fetch_filtered_users('', '', '', '');
+window.addEventListener('load', ()=>{
+    fetch(`http://localhost/interstellar_date_server/search_user.php`)
+    .then(response => response.json())
+    .then((data)=>{
+        users_data = data;
+        render_users(data, 0);
+        console.log(data)
+    });
+})
+
 
 // SEARCH USER
 const search_input = document.getElementById('search_input');
@@ -107,7 +117,7 @@ function render_users(data, index){
     // NEXT USER
     x_user.addEventListener('click', ()=>{
 
-        if(user_index < 2){
+        if(user_index < users_data.length-1){
             user_index += 1;
         }else{
             user_index = 0;
