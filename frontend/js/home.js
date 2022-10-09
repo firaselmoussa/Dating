@@ -40,8 +40,8 @@ max_age_filter.addEventListener('input', ()=>{
 });
 
 
-
 // FETCHING USERS
+// filter fetch
 function fetch_filtered_users(planet, gender, min_age, max_age){
 
     fetch(`http://localhost/interstellar_date_server/users.php?planet=${planet}&gender=${gender}&min_age=${min_age}&max_age=${max_age}`)
@@ -53,9 +53,29 @@ function fetch_filtered_users(planet, gender, min_age, max_age){
     });
 
 }
+// search fetch
+function fetch_searched_users(name){
+
+    fetch(`http://localhost/interstellar_date_server/search_user.php?user_name=${name}`)
+    .then(response => response.json())
+    .then((data)=>{
+        users_data = data;
+        render_users(data, 0);
+        console.log(data)
+    });
+
+}
 
 // initial fetch
 fetch_filtered_users('earth', 'male', 0, 100);
+
+// SEARCH USER
+const search_input = document.getElementById('search_input');
+
+search_input.addEventListener('input', ()=>{
+    fetch_searched_users(search_input.value)
+})
+
 
 // RENDERING USERS
 const user_name = document.getElementById('user_name');
@@ -95,3 +115,4 @@ function render_users(data, index){
         
         render_users(users_data, user_index);
     })
+
