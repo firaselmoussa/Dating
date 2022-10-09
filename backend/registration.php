@@ -37,8 +37,7 @@ if($data){
         $return_data['status'] = 1;
         $return_data['message'] = "Signed up successfully";
     } else {
-        // $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
-        $return_data['message'] = "Signed up successfully";
+        $return_data['message'] = "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 

@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home | Interstellar Date</title>
+    <!-- CSS files links -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/home.css">
+    <!-- Material icons link -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+    
+    <!-- background image -->
+    <img src="../../assets/planet-bg.avif" alt="planet-bg" class="planet-bg">
+
+    <div class="home-container">
+
+        <div class="home-links">
+
+            <div>
+                <i class="material-icons" >person</i>
+                <h4>Profile</h4>
+            </div>
+
+            <div>
+                <i class="material-icons">chat</i>
+                <h4>Chat</h4>
+            </div>
+
+            <div>
+                <i class="material-icons">favorite</i>
+                <h4>Liked</h4>
+            </div>
+
+            <div>
+                <i class="material-icons">people</i>
+                <h4>Joined <br> Today</h4>
+            </div>
+
+        </div>
+
+        <!-- Cards container -->
+        <div class="cards-container">
+
+            <!-- header -->
+            <div class="card-header">
+
+                <!-- logo -->
+                <div class="logo">
+                    <img src="../../assets/logo.png" alt="logo-img" class="logo-img">
+                    <h1>Interstellar <br> Date</h1>
+                </div>
+
+                <!-- icons -->
+                <div class="icons-div">
+                    <div class="search-div">
+                    <i class="material-icons">search</i>
+                    <input type="text" name="search" id="search_input" placeholder="user name..">
+                </div>
+                    <i class="material-icons" id="filter_drop_down_btn">sort</i>
+                </div>
+
+            </div>
+
+            <!-- filter drop-down -->
+            <div class="filter-dropdown">
+
+                <!-- filter by gender -->
+                <label for="gender">Gender</label>
+                <select name="gender" id="gender_filter">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Tree">Tree</option>
+                </select>
+
+                <br>
+
+                <!-- filter by planet -->
+                <label for="planet_filter">Planet</label>
+                <select name="planet_filter" id="planet_filter">
+                    <option value="Earth">Earth</option>
+                    <option value="Venus">Venus</option>
+                    <option value="Jupiter">Jupiter</option>
+                    <option value="Mercury">Mercury</option>
+                    <option value="Neptune">Neptune</option>
+                    <option value="Mars">Mars</option>
+                    <option value="Saturn">Saturn</option>
+                    <option value="Pluto">Pluto</option>
+                    <option value="Uranus">Uranus</option>
+                    <option value="Ceres">Ceres</option>
+                    <option value="Haumea">Haumea</option>
+                    <option value="Makemake">Makemake</option>
+                    <option value="Eris">Eris</option>
+                    <option value="Kepler-186f">Kepler-186f</option>
+                    <option value="Kepler-22b">Kepler-22b</option>
+                    <option value="Gliese">Gliese</option>
+                    <option value="CoRoT-7b">CoRoT-7b</option>
+                    <option value="Kepler-16b">Kepler-16b</option>
+                </select>
+
+                <br>
+
+                <!-- filter by age -->
+                <label for="age_filter">Age</label>
+
+                <input type="range" name="age_filter" id="min_age_filter" class="min-age-filter" value="0">
+    <br>
+                <input type="range" name="age_filter" id="max_age_filter" max="99" class="max-age-filter" value="99">
+
+                <br>
+
+                <button class="apply_filter" id="apply_filter">Apply</button>
+
+            </div>
+
+            <!-- user profile photo -->
+            <img src="" alt="user profile photo" class="user-profile-img" id="user_profile_img">
+
+            <!-- user info -->
+            <div class="user-info">
+
+                <div class="info-header">
+                    <h3 class="user-name" id="user_name"><!--user-name--></h3>
+                    <h4>
+                        <span id="user_age"><!--user-age--></span> Years old
+                        <span id="user_gender"><!--user-gender--></span> 
+                        From <span id="user_planet"><!--user-planet--></span> 
+                    </h4>
+                </div>
+
+                <p class="user-biography" id="user_biography"><!--user-biography--></p>
+
+            </div>
+
+            <!-- card footer -->
+            <div class="card-footer">
+                <i class="material-icons" id="x_user">clear</i>
+                <i class="material-icons" id="like_user">favorite</i>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../js/home.js"></script>
+</body>
+</html>
