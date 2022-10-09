@@ -1,9 +1,14 @@
 // SECTIONS TOGGLING
 const cards_container = document.querySelector('.cards-container');
 const card_users = document.getElementById('card-users');
+const explore_btn = document.getElementById('explore_btn');
 const lounge_btn = document.getElementById('lounge_btn');
+
 // lounge html
-const lounge_cards = `<div class="lounge-cards">
+// let explore_html = document.getElementById('card_users').innerHTML;
+
+// lounge html
+let lounge_html = `<div class="lounge-cards">
                         <h4>Liked :)</h4>
                         <div class="liked_by_user"></div>
                         <h4>Liked Me ;)</h4>
@@ -12,10 +17,15 @@ const lounge_cards = `<div class="lounge-cards">
                         <div class="matched"></div>
                     </div>`;
 
+// render explore page html
+explore_btn.addEventListener('click', ()=>{
+    window.location.reload();
+});
 
+// render liked page html
 lounge_btn.addEventListener('click', ()=>{
-    cards_container.innerHTML = lounge_cards;
-})
+    cards_container.innerHTML = lounge_html;
+});
 
 // HOME-USERS JS
 let logged_user_id = localStorage.getItem('logged_user_id');
