@@ -357,6 +357,7 @@ body {
         width: 100%;
         height: fit-content;
         min-height: 87.5%;
+        border-radius: 0;
     }
     .home-links{
         left: 0;
@@ -428,6 +429,7 @@ body {
     background: rgba(255, 255, 255, 0.2);
     overflow-x: scroll;
     border-radius: 3px;
+    padding: 2px;
 }
 
 .liked_by_user::-webkit-scrollbar,
@@ -436,10 +438,40 @@ body {
     height: 3px;
 }
 
+.lounge-user-card{
+    width:120px;
+    height:100%;
+    border-radius: 3px;
+    filter: drop-shadow(0 0 1px white);
+}
+
+.lounge-card-profile-photo{
+    width:100%;
+    height:100%;
+    border-radius: 3px;
+    z-index: -3;
+    position: absolute;
+}
+
+.lounge-card-info{
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+}
+
 @media only screen and (max-width: 700px) {
 .liked_by_user,
     .liked_user,
     .matched {
         height: 28vh;
+    }
+}
+
+@media only screen and (max-width: 660px) {
+
+    .liked_by_user,
+    .liked_user,
+    .matched {
+        height: 25vh;
     }
 }
