@@ -419,28 +419,29 @@ body {
 
 .liked_by_user,
 .liked_user,
-.matched{
-    display: flex;
-    flex-flow: wrap row;
-    justify-content: flex-start;
-    align-items: flex-start;
+.matches{
+
     width: 112%;
     height: 26vh;
-    background: rgba(255, 255, 255, 0.2);
-    overflow-x: scroll;
+    /* background: rgba(255, 255, 255, 0.2); */
+    overflow: auto;
+    white-space: nowrap;
     border-radius: 3px;
-    padding: 2px;
+    padding: 0 2px;
+    gap: 5px;
 }
 
 .liked_by_user::-webkit-scrollbar,
 .liked_user::-webkit-scrollbar,
-.matched::-webkit-scrollbar {
+.matches::-webkit-scrollbar {
     height: 3px;
 }
 
 .lounge-user-card{
+    display: inline-block;
+    margin-right: 5px;
     width:120px;
-    height:100%;
+    height: 98%;
     border-radius: 3px;
     filter: drop-shadow(0 0 1px white);
 }
@@ -462,7 +463,7 @@ body {
 @media only screen and (max-width: 700px) {
 .liked_by_user,
     .liked_user,
-    .matched {
+    .matches {
         height: 28vh;
     }
 }
@@ -471,7 +472,7 @@ body {
 
     .liked_by_user,
     .liked_user,
-    .matched {
+    .matches {
         height: 25vh;
     }
 }

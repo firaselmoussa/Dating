@@ -10,8 +10,14 @@ const lounge_btn = document.getElementById('lounge_btn');
 // lounge html
 let lounge_html = `<div class="lounge-cards">
                         <h4><span id="liked_users_count">0</span> Liked :)</h4>
-                        <div class="liked_by_user">
-                        <div class="lounge-user-card">
+                        <div class="liked_by_user"></div>
+                        <h4><span id="liked_me_count">0</span> Liked Me ;)</h4>
+                        <div class="liked_user"></div>
+                        <h4><span id="matches_count">0</span> Matches ^_^</h4>
+                        <div class="matches"></div>
+                    </div>`;
+
+let lounge_card_html = `<div class="lounge-user-card">
                             <img src="../../assets/planet-bg.avif" alt="planet-bg" class="lounge-card-profile-photo">
                             
                             <h5 class="lounge-card-info">
@@ -19,13 +25,7 @@ let lounge_html = `<div class="lounge-cards">
                             <span class="lounge-card-age">20</span>
                             </h5>
                             
-                            </div>
-                        </div>
-                        <h4><span id="liked_me_count">0</span> Liked Me ;)</h4>
-                        <div class="liked_user"></div>
-                        <h4><span id="matches_count">0</span> Matches ^_^</h4>
-                        <div class="matched"></div>
-                    </div>`;
+                        </div>`
 
 // render explore page html
 explore_btn.addEventListener('click', ()=>{
@@ -35,6 +35,11 @@ explore_btn.addEventListener('click', ()=>{
 // render liked page html
 lounge_btn.addEventListener('click', ()=>{
     cards_container.innerHTML = lounge_html;
+    for(i=0; i<10; i++){
+    document.querySelector('.liked_by_user').innerHTML += lounge_card_html; 
+    document.querySelector('.liked_user').innerHTML += lounge_card_html; 
+    document.querySelector('.matches').innerHTML += lounge_card_html; 
+}
 });
 
 // HOME-USERS JS
