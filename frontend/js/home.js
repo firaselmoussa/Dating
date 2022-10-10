@@ -14,6 +14,11 @@ let lounge_html = `<div class="lounge-cards">
                         <div class="matches"></div>
                     </div>`;
 
+// declaring cards count
+let liked_users_count;
+let liked_me_count;
+let matches_count;
+
 // declaring lounge cards containers
 let liked_users_container;
 let liked_by_container;
@@ -29,6 +34,13 @@ lounge_btn.addEventListener('click', ()=>{
     
     // insert lounge html
     cards_container.innerHTML = lounge_html;
+
+    // assigning cards count
+    liked_users_count = document.getElementById('liked_users_count');
+    liked_me_count = document.getElementById('liked_me_count');
+    matches_count = document.getElementById('matches_count');
+
+    // assigning cards containers
     liked_users_container = document.querySelector('.liked_user');
     liked_by_container = document.querySelector('.liked_by_user');
     matches_container = document.querySelector('.matches');
@@ -46,7 +58,8 @@ function fetch_liked(){
     fetch(`http://localhost/interstellar_date_server/liked_users.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
-        render_users_cards(data, liked_users_container)
+        liked_users_count.innerText = data.length;
+        render_users_cards(data, liked_users_container);
     });
     
 }
@@ -57,17 +70,19 @@ function fetch_liked_by(){
     fetch(`http://localhost/interstellar_date_server/liked_by.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
+        liked_me_count.innerText = data.length;
         render_users_cards(data, liked_by_container)
     });
     
 }
 
-// fetch liked by users
+// fetch matches users
 function fetch_matches(){
     
     fetch(`http://localhost/interstellar_date_server/matches.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
+        matches_count.innerText = data.length;
         render_users_cards(data, matches_container)
     });
     
