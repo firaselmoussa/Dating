@@ -43,7 +43,7 @@ lounge_btn.addEventListener('click', ()=>{
     // insert liked users html
     fetch_liked();
     fetch_liked_by();
-    
+    matches();
 
 });
 
@@ -65,6 +65,17 @@ function fetch_liked_by(){
     .then(response => response.json())
     .then((data)=>{
         render_users_cards(data, liked_by_container)
+    });
+    
+}
+
+// fetch liked by users
+function matches(){
+    
+    fetch(`http://localhost/interstellar_date_server/matches.php?logged_user_id=${logged_user_id}`)
+    .then(response => response.json())
+    .then((data)=>{
+        render_users_cards(data, matches_container)
     });
     
 }
