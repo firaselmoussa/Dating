@@ -117,8 +117,24 @@ function fetch_searched_users(name){
     fetch(`http://localhost/interstellar_date_server/search_user.php?user_name=${name}&logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
+        
         users_data = data;
         render_users(data, 0);
+
+        // render search result count
+        search_result.innerText = `${users_data.length} results`;
+
+        // color result
+        if(users_data.length > 0){
+            search_result.style.color = 'rgb(0, 200, 0)';
+        }else{
+            search_result.style.color = 'red';
+        }
+
+        // empty result
+        if(!search_input.value){
+            search_result.innerText = ' ';
+        }
     });
 };
 
@@ -141,21 +157,6 @@ const search_result = document.getElementById('search_result');
 
 search_input.addEventListener('input', ()=>{
     fetch_searched_users(search_input.value);
-
-    // render search result count
-    search_result.innerText = `${users_data.length} results`;
-
-    // color result
-    if(users_data.length > 0){
-        search_result.style.color = 'rgb(0, 200, 0)';
-    }else{
-        search_result.style.color = 'red';
-    }
-
-    // empty result
-    if(!search_input.value){
-        search_result.innerText = ' ';
-    }
 
 });
 
