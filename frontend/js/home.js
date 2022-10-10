@@ -24,7 +24,7 @@ let lounge_card_html = `<div class="lounge-user-card">
                             
                         </div>`
 let liked_users_container;
-let liked_by_user_container;
+let liked_by_container;
 let matches_container;
 // render explore page html
 explore_btn.addEventListener('click', ()=>{
@@ -37,11 +37,12 @@ lounge_btn.addEventListener('click', ()=>{
     // insert lounge html
     cards_container.innerHTML = lounge_html;
     liked_users_container = document.querySelector('.liked_user');
-    liked_by_user_container = document.querySelector('.liked_by_user');
+    liked_by_container = document.querySelector('.liked_by_user');
     matches_container = document.querySelector('.matches');
 
     // insert liked users html
     fetch_liked();
+    fetch_liked_by();
     
 
 });
@@ -57,12 +58,25 @@ function fetch_liked(){
     
 }
 
+// fetch liked by users
+function fetch_liked_by(){
+    
+    fetch(`http://localhost/interstellar_date_server/liked_by.php?logged_user_id=${logged_user_id}`)
+    .then(response => response.json())
+    .then((data)=>{
+        render_users_cards(data, liked_by_container)
+    });
+    
+}
+
 // render users cards
 function render_users_cards(liked_users, container){
 
     for(user of liked_users){
-        let current_date = new Date().getFullYear();
-        let age = current_date - parseInt(user.birth_date);
+
+        // calculating user's age
+        let age = (new Date().getFullYear()) - parseInt(user.birth_date);
+
         container.innerHTML +=`<div class="lounge-user-card">
                                 <img src="${user.profile_image}" class="lounge-card-profile-photo">
                                 
