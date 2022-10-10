@@ -7,9 +7,9 @@ const lounge_btn = document.getElementById('lounge_btn');
 // lounge html
 let lounge_html = `<div class="lounge-cards">
                         <h4><span id="liked_users_count">0</span> Liked :)</h4>
-                        <div class="liked_by_user"></div>
-                        <h4><span id="liked_me_count">0</span> Liked Me ;)</h4>
                         <div class="liked_user"></div>
+                        <h4><span id="liked_me_count">0</span> Liked Me ;)</h4>
+                        <div class="liked_by_user"></div>
                         <h4><span id="matches_count">0</span> Matches ^_^</h4>
                         <div class="matches"></div>
                     </div>`;
@@ -23,7 +23,9 @@ let lounge_card_html = `<div class="lounge-user-card">
                             </h5>
                             
                         </div>`
-
+let liked_users_container;
+let liked_by_user_container;
+let matches_container;
 // render explore page html
 explore_btn.addEventListener('click', ()=>{
     window.location.reload();
@@ -31,27 +33,48 @@ explore_btn.addEventListener('click', ()=>{
 
 // render liked page html
 lounge_btn.addEventListener('click', ()=>{
+    
     // insert lounge html
     cards_container.innerHTML = lounge_html;
+    liked_users_container = document.querySelector('.liked_user');
+    liked_by_user_container = document.querySelector('.liked_by_user');
+    matches_container = document.querySelector('.matches');
+
     // insert liked users html
     fetch_liked();
+    
 
-    for(i=0; i<10; i++){
-        document.querySelector('.liked_by_user').innerHTML += lounge_card_html; 
-        document.querySelector('.liked_user').innerHTML += lounge_card_html; 
-        document.querySelector('.matches').innerHTML += lounge_card_html; 
-    }
 });
 
 // fetch liked users
 function fetch_liked(){
+    
     fetch(`http://localhost/interstellar_date_server/liked_users.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
-        console.log(data)
-        
+        render_users_cards(data, liked_users_container)
     });
+    
 }
+
+// render users cards
+function render_users_cards(liked_users, container){
+
+    for(user of liked_users){
+        let current_date = new Date().getFullYear();
+        let age = current_date - parseInt(user.birth_date);
+        container.innerHTML +=`<div class="lounge-user-card">
+                                <img src="${user.profile_image}" class="lounge-card-profile-photo">
+                                
+                                <h5 class="lounge-card-info">
+                                <span class="lounge-card-username">${user.name}</span>
+                                <span class="lounge-card-age">${age}</span>
+                                </h5>
+                            
+                            </div>`;
+    };
+
+};
 
 // HOME-USERS JS
 let logged_user_id = localStorage.getItem('logged_user_id');
