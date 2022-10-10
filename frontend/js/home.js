@@ -5,9 +5,6 @@ const explore_btn = document.getElementById('explore_btn');
 const lounge_btn = document.getElementById('lounge_btn');
 
 // lounge html
-// let explore_html = document.getElementById('card_users').innerHTML;
-
-// lounge html
 let lounge_html = `<div class="lounge-cards">
                         <h4><span id="liked_users_count">0</span> Liked :)</h4>
                         <div class="liked_by_user"></div>
@@ -34,13 +31,27 @@ explore_btn.addEventListener('click', ()=>{
 
 // render liked page html
 lounge_btn.addEventListener('click', ()=>{
+    // insert lounge html
     cards_container.innerHTML = lounge_html;
+    // insert liked users html
+    fetch_liked();
+
     for(i=0; i<10; i++){
-    document.querySelector('.liked_by_user').innerHTML += lounge_card_html; 
-    document.querySelector('.liked_user').innerHTML += lounge_card_html; 
-    document.querySelector('.matches').innerHTML += lounge_card_html; 
-}
+        document.querySelector('.liked_by_user').innerHTML += lounge_card_html; 
+        document.querySelector('.liked_user').innerHTML += lounge_card_html; 
+        document.querySelector('.matches').innerHTML += lounge_card_html; 
+    }
 });
+
+// fetch liked users
+function fetch_liked(){
+    fetch(`http://localhost/interstellar_date_server/liked_users.php?logged_user_id=${logged_user_id}`)
+    .then(response => response.json())
+    .then((data)=>{
+        console.log(data)
+        
+    });
+}
 
 // HOME-USERS JS
 let logged_user_id = localStorage.getItem('logged_user_id');
