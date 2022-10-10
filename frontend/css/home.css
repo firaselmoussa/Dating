@@ -411,10 +411,9 @@ body {
     height:100%;
     display: flex;
     flex-flow: wrap column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: flex-start;
     padding: 5px;
-    /* overflow: hidden; */
 }
 
 .liked_by_user,
@@ -424,9 +423,8 @@ body {
     flex-flow: wrap row;
     justify-content: flex-start;
     align-items: flex-start;
-    width: fit-content;
-    max-width: 112%;
-    min-height: 26vh;
+    width: 112%;
+    height: 26vh;
     background: rgba(255, 255, 255, 0.2);
     overflow-x: scroll;
     border-radius: 3px;
@@ -436,4 +434,12 @@ body {
 .liked_user::-webkit-scrollbar,
 .matched::-webkit-scrollbar {
     height: 3px;
+}
+
+@media only screen and (max-width: 700px) {
+.liked_by_user,
+    .liked_user,
+    .matched {
+        height: 28vh;
+    }
 }

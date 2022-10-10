@@ -9,11 +9,11 @@ const lounge_btn = document.getElementById('lounge_btn');
 
 // lounge html
 let lounge_html = `<div class="lounge-cards">
-                        <h4>Liked :)</h4>
+                        <h4><span id="liked_users_count">0</span> Liked :)</h4>
                         <div class="liked_by_user"></div>
-                        <h4>Liked Me ;)</h4>
+                        <h4><span id="liked_me_count">0</span> Liked Me ;)</h4>
                         <div class="liked_user"></div>
-                        <h4>Matches ^_^</h4>
+                        <h4><span id="matches_count">0</span> Matches ^_^</h4>
                         <div class="matched"></div>
                     </div>`;
 
