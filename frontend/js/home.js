@@ -1,3 +1,48 @@
+// SECTIONS TOGGLING
+const cards_container = document.querySelector('.cards-container');
+const card_users = document.getElementById('card-users');
+const explore_btn = document.getElementById('explore_btn');
+const lounge_btn = document.getElementById('lounge_btn');
+
+// lounge html
+// let explore_html = document.getElementById('card_users').innerHTML;
+
+// lounge html
+let lounge_html = `<div class="lounge-cards">
+                        <h4><span id="liked_users_count">0</span> Liked :)</h4>
+                        <div class="liked_by_user"></div>
+                        <h4><span id="liked_me_count">0</span> Liked Me ;)</h4>
+                        <div class="liked_user"></div>
+                        <h4><span id="matches_count">0</span> Matches ^_^</h4>
+                        <div class="matches"></div>
+                    </div>`;
+
+let lounge_card_html = `<div class="lounge-user-card">
+                            <img src="../../assets/planet-bg.avif" alt="planet-bg" class="lounge-card-profile-photo">
+                            
+                            <h5 class="lounge-card-info">
+                            <span class="lounge-card-username">John</span>
+                            <span class="lounge-card-age">20</span>
+                            </h5>
+                            
+                        </div>`
+
+// render explore page html
+explore_btn.addEventListener('click', ()=>{
+    window.location.reload();
+});
+
+// render liked page html
+lounge_btn.addEventListener('click', ()=>{
+    cards_container.innerHTML = lounge_html;
+    for(i=0; i<10; i++){
+    document.querySelector('.liked_by_user').innerHTML += lounge_card_html; 
+    document.querySelector('.liked_user').innerHTML += lounge_card_html; 
+    document.querySelector('.matches').innerHTML += lounge_card_html; 
+}
+});
+
+// HOME-USERS JS
 let logged_user_id = localStorage.getItem('logged_user_id');
 let rendered_user_id;
 let users_data;  
@@ -52,7 +97,6 @@ function fetch_filtered_users(planet, gender, min_age, max_age){
     .then((data)=>{
         users_data = data;
         render_users(data, 0);
-        console.log(data)
     });
 
 };
@@ -64,9 +108,7 @@ function fetch_searched_users(name){
     .then((data)=>{
         users_data = data;
         render_users(data, 0);
-        console.log(data)
     });
-
 };
 
 // initial fetch
@@ -84,9 +126,26 @@ window.addEventListener('load', ()=>{
 
 // SEARCH USER
 const search_input = document.getElementById('search_input');
+const search_result = document.getElementById('search_result');
 
 search_input.addEventListener('input', ()=>{
-    fetch_searched_users(search_input.value)
+    fetch_searched_users(search_input.value);
+
+    // render search result count
+    search_result.innerText = `${users_data.length} results`;
+
+    // color result
+    if(users_data.length > 0){
+        search_result.style.color = 'rgb(0, 200, 0)';
+    }else{
+        search_result.style.color = 'red';
+    }
+
+    // empty result
+    if(!search_input.value){
+        search_result.innerText = ' ';
+    }
+
 });
 
 
