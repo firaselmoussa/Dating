@@ -117,9 +117,6 @@ function fetch_searched_users(name){
     fetch(`http://localhost/interstellar_date_server/search_user.php?user_name=${name}&logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
-        
-        users_data = data;
-        render_users(data, 0);
 
         // render search result count
         search_result.innerText = `${users_data.length} results`;
@@ -135,6 +132,11 @@ function fetch_searched_users(name){
         if(!search_input.value){
             search_result.innerText = ' ';
         }
+
+        // update user data
+        users_data = data;
+        // render user
+        render_users(data, 0);
     });
 };
 
