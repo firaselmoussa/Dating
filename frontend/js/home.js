@@ -14,18 +14,11 @@ let lounge_html = `<div class="lounge-cards">
                         <div class="matches"></div>
                     </div>`;
 
-let lounge_card_html = `<div class="lounge-user-card">
-                            <img src="../../assets/planet-bg.avif" alt="planet-bg" class="lounge-card-profile-photo">
-                            
-                            <h5 class="lounge-card-info">
-                            <span class="lounge-card-username">John</span>
-                            <span class="lounge-card-age">20</span>
-                            </h5>
-                            
-                        </div>`
+// declaring lounge cards containers
 let liked_users_container;
 let liked_by_container;
 let matches_container;
+
 // render explore page html
 explore_btn.addEventListener('click', ()=>{
     window.location.reload();
@@ -40,10 +33,10 @@ lounge_btn.addEventListener('click', ()=>{
     liked_by_container = document.querySelector('.liked_by_user');
     matches_container = document.querySelector('.matches');
 
-    // insert liked users html
+    //fetched & rendered users html
     fetch_liked();
     fetch_liked_by();
-    matches();
+    fetch_matches();
 
 });
 
@@ -70,7 +63,7 @@ function fetch_liked_by(){
 }
 
 // fetch liked by users
-function matches(){
+function fetch_matches(){
     
     fetch(`http://localhost/interstellar_date_server/matches.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
@@ -196,7 +189,6 @@ window.addEventListener('load', ()=>{
     .then((data)=>{
         users_data = data;
         render_users(data, 0);
-        console.log(data)
     });
 });
 
