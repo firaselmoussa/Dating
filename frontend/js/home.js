@@ -89,14 +89,14 @@ function fetch_matches(){
 }
 
 // render users cards
-function render_users_cards(liked_users, container){
+function render_users_cards(users, container){
 
-    for(user of liked_users){
+    for(user of users){
 
         // calculating user's age
         let age = (new Date().getFullYear()) - parseInt(user.birth_date);
 
-        container.innerHTML +=`<div class="lounge-user-card">
+        container.innerHTML +=`<div class="lounge-user-card" id="${user.id}">
                                 <img src="${user.profile_image}" class="lounge-card-profile-photo">
                                 
                                 <h5 class="lounge-card-info">
