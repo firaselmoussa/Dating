@@ -14,6 +14,33 @@ let lounge_html = `<div class="lounge-cards">
                         <div class="matches"></div>
                     </div>`;
 
+function render_lounge_card(userData, container){
+
+    // calculating user's age
+    let age = (new Date().getFullYear()) - parseInt(userData.birth_date);
+
+    container.innerHTML = `<div class="lounge-card">
+                        <img src="${userData.profile_image}" alt="user profile photo" class="user-profile-img" id="user_profile_img">
+
+                        <i class="material-icons" id="remove_card">clear</i>
+
+                            <!-- user info -->
+                            <div class="user-info">
+
+                                <div class="info-header">
+                                    <h3 class="user-name" id="user_name">${userData.name}</h3>
+                                    <h4>
+                                        <span id="user_age">${age}</span> Years old
+                                        <span id="user_gender">${userData.gender}</span> 
+                                        From <span id="user_planet">${userData.planet}</span> 
+                                    </h4>
+                                </div>
+
+                                <p class="user-biography" id="user_biography">${userData.biography}</p>
+                        </div>`;
+};
+
+let users_data_array = [];
 // declaring cards count
 let liked_users_count;
 let liked_me_count;
@@ -89,14 +116,17 @@ function fetch_matches(){
 }
 
 // render users cards
+let card_index = 0;
 function render_users_cards(users, container){
 
     for(user of users){
 
+        users_data_array.splice(card_index, 0, user);
+        
         // calculating user's age
         let age = (new Date().getFullYear()) - parseInt(user.birth_date);
 
-        container.innerHTML +=`<div class="lounge-user-card" id="${user.id}">
+        container.innerHTML +=`<div class="lounge-user-card" id="${user.id}" index="${card_index}">
                                 <img src="${user.profile_image}" class="lounge-card-profile-photo">
                                 
                                 <h5 class="lounge-card-info">
@@ -105,10 +135,24 @@ function render_users_cards(users, container){
                                 </h5>
                             
                             </div>`;
+
+        card_index += 1;
     };
 
+        // add event listener to all user cards
+        const lounge_user_card = Object.values(document.getElementsByClassName('lounge-user-card'));
+        
+        lounge_user_card.forEach(element => {
+            element.addEventListener('click', ()=>{
+                let index = element.getAttribute('index');
+                render_lounge_card(users_data_array[index], cards_container);
+                
+            })
+        });
+    
 };
 
+    
 // HOME-USERS JS
 let logged_user_id = localStorage.getItem('logged_user_id');
 let rendered_user_id;
