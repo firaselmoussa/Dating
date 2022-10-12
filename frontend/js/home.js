@@ -121,6 +121,7 @@ function render_users_cards(users, container){
 
     for(user of users){
 
+        // inserting user data in array
         users_data_array.splice(card_index, 0, user);
         
         // calculating user's age
@@ -136,6 +137,7 @@ function render_users_cards(users, container){
                             
                             </div>`;
 
+        // increment incex of card in cards array
         card_index += 1;
     };
 
@@ -144,12 +146,24 @@ function render_users_cards(users, container){
         
         lounge_user_card.forEach(element => {
             element.addEventListener('click', ()=>{
+                // getting index of elements
                 let index = element.getAttribute('index');
                 render_lounge_card(users_data_array[index], cards_container);
                 
+                document.getElementById('remove_card').addEventListener('click', ()=>{
+                    // clearing cards container
+                    cards_container.innerHTML = lounge_html;
+                    // assigning cards containers
+                    liked_users_container = document.querySelector('.liked_user');
+                    liked_by_container = document.querySelector('.liked_by_user');
+                    matches_container = document.querySelector('.matches');
+                    //fetched & rendered users html
+                    fetch_liked();
+                    fetch_liked_by();
+                    fetch_matches();
+                })
             })
         });
-    
 };
 
     
