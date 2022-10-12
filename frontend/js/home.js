@@ -37,6 +37,12 @@ function render_lounge_card(userData, container){
                                 </div>
 
                                 <p class="user-biography" id="user_biography">${userData.biography}</p>
+
+                                <div class="card-footer">
+                                    <i class="material-icons" id="x_user">clear</i>
+                                    <i class="material-icons lounge-like-btn" id="like_user">favorite</i>
+                                </div>
+
                         </div>`;
 };
 
@@ -150,6 +156,7 @@ function render_users_cards(users, container){
                 let index = element.getAttribute('index');
                 render_lounge_card(users_data_array[index], cards_container);
                 
+                // Removing card 
                 document.getElementById('remove_card').addEventListener('click', ()=>{
                     // clearing cards container
                     cards_container.innerHTML = lounge_html;
@@ -161,9 +168,18 @@ function render_users_cards(users, container){
                     fetch_liked();
                     fetch_liked_by();
                     fetch_matches();
-                })
-            })
+                });
+
+        // add event listener to all user cards
+        const lounge_like_btn = Object.values(document.getElementsByClassName('lounge-like-btn'));
+        // liking user
+        lounge_like_btn.forEach(element => {
+            element.addEventListener('click', ()=>{
+                    like_user_function(users_data_array[index].id, logged_user_id)
+                });
+            });
         });
+    });
 };
 
     
