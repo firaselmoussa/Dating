@@ -321,13 +321,17 @@ x_user.addEventListener('click', ()=>{
 
 // Like user
 like_user.addEventListener('click', ()=>{
-        fetch(`http://localhost/interstellar_date_server/like_user.php?user_id=${logged_user_id}&liked_user_id=${rendered_user_id}`)
+        like_user_function(rendered_user_id, logged_user_id)
+
+        // passing to the next user
+        x_user.click();
+});
+
+function like_user_function(liked_user, liked_by){
+            fetch(`http://localhost/interstellar_date_server/like_user.php?user_id=${liked_by}&liked_user_id=${liked_user}`)
         .then(response => response.json())
         .then((data)=>{
             let like_result = data;
             console.log(like_result)
         });
-
-        // passing to the next user
-        x_user.click();
-});
+}
