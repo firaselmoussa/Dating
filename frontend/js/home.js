@@ -40,7 +40,7 @@ function render_lounge_card(userData, container){
 
                                 <div class="card-footer">
                                     <i class="material-icons" id="x_user">clear</i>
-                                    <i class="material-icons lounge-like-btn" id="like_user">favorite</i>
+                                    <i class="material-icons lounge-like-btn" id="lounge_card_btn">favorite</i>
                                 </div>
 
                         </div>`;
@@ -170,6 +170,15 @@ function render_users_cards(users, container){
                     fetch_matches();
                 });
 
+            let lounge_card_btn = document.getElementById('lounge_card_btn');
+
+                if(logged_user_id == users_data_array[index].liked_by_id){
+                    lounge_card_btn.style.display = 'none';
+                }else if(logged_user_id == users_data_array[index].liked_user_id){
+                    lounge_card_btn.innerHTML = '<i class="material-icons lounge-like-btn" id="lounge_card_btn">favorite</i>';
+                    lounge_card_btn.style.border = 'none';
+                }
+        
         // add event listener to all user cards
         const lounge_like_btn = Object.values(document.getElementsByClassName('lounge-like-btn'));
         // liking user
