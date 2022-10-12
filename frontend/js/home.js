@@ -92,7 +92,8 @@ function fetch_liked(){
     .then(response => response.json())
     .then((data)=>{
         liked_users_count.innerText = data.length;
-        render_users_cards(data, liked_users_container);
+        let state = 'liked_by_user';
+        render_users_cards(data, state, liked_users_container);
     });
     
 }
@@ -104,7 +105,8 @@ function fetch_liked_by(){
     .then(response => response.json())
     .then((data)=>{
         liked_me_count.innerText = data.length;
-        render_users_cards(data, liked_by_container)
+        let state = 'likes_user';
+        render_users_cards(data, state, liked_by_container)
     });
     
 }
@@ -116,14 +118,15 @@ function fetch_matches(){
     .then(response => response.json())
     .then((data)=>{
         matches_count.innerText = data.length;
-        render_users_cards(data, matches_container)
+        let state = 'match';
+        render_users_cards(data, state, matches_container)
     });
     
 }
 
 // render users cards
 let card_index = 0;
-function render_users_cards(users, container){
+function render_users_cards(users, state, container){
 
     for(user of users){
 
@@ -133,7 +136,7 @@ function render_users_cards(users, container){
         // calculating user's age
         let age = (new Date().getFullYear()) - parseInt(user.birth_date);
 
-        container.innerHTML +=`<div class="lounge-user-card" id="${user.id}" index="${card_index}">
+        container.innerHTML +=`<div class="lounge-user-card" id="${user.id}" index="${card_index}" state="${state}">
                                 <img src="${user.profile_image}" class="lounge-card-profile-photo">
                                 
                                 <h5 class="lounge-card-info">
@@ -147,8 +150,8 @@ function render_users_cards(users, container){
         card_index += 1;
     };
 
-        // add event listener to all user cards
-        const lounge_user_card = Object.values(document.getElementsByClassName('lounge-user-card'));
+    // add event listener to all user cards
+    const lounge_user_card = Object.values(document.getElementsByClassName('lounge-user-card'));
         
         lounge_user_card.forEach(element => {
             element.addEventListener('click', ()=>{
@@ -169,16 +172,22 @@ function render_users_cards(users, container){
                     fetch_liked_by();
                     fetch_matches();
                 });
-
+        
+            // card's varying button
             let lounge_card_btn = document.getElementById('lounge_card_btn');
 
-                if(logged_user_id == users_data_array[index].liked_by_id){
+            // rendering different buttons depending on the card's state
+                if(element.getAttribute('state') == 'liked_by_user'){
                     lounge_card_btn.style.display = 'none';
-                }else if(logged_user_id == users_data_array[index].liked_user_id){
+                    console.log(element.getAttribute('state'))
+                }else if(element.getAttribute('state') == 'likes_user'){
                     lounge_card_btn.innerHTML = '<i class="material-icons lounge-like-btn" id="lounge_card_btn">favorite</i>';
                     lounge_card_btn.style.border = 'none';
+                }else if(element.getAttribute('state') == 'match'){
+                    lounge_card_btn.innerHTML = '<i class="material-icons lounge-like-btn" id="lounge_card_btn">chat</i>';
+                    lounge_card_btn.style.border = 'none';
                 }
-        
+
         // add event listener to all user cards
         const lounge_like_btn = Object.values(document.getElementsByClassName('lounge-like-btn'));
         // liking user
