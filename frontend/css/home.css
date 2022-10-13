@@ -499,3 +499,18 @@ body {
         height: 25vh;
     }
 }
+
+/* JOINED TODAY USERS */
+.joined-today-cards {
+    width: 95%;
+    height: 80vh;
+    margin-left: 2%;
+    overflow-y: scroll;
+}
+
+.joined-today {
+    height: 40%;
+    width: 95%;
+    margin-top: 10px;
+    gap: 10px;
+}
