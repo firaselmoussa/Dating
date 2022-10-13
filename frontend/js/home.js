@@ -24,7 +24,7 @@ let joined_today_html = `<div class="joined-today-cards">
 
 // chats html
 let chats_html = `<div class="chats-cards">
-                            <h4><span id="chats_count">0</span>Chats</h4>
+                            <h4><span id="chats_count">0</span> Chats</h4>
                             <div class="chats"></div>
                         </div>`;
 
@@ -115,6 +115,38 @@ joined_today_btn.addEventListener('click', ()=>{
     fetch_joined_today();
 
 });
+
+// render chats page html
+chats_btn.addEventListener('click', ()=>{
+    
+    // insert lounge html
+    cards_container.innerHTML = chats_html;
+
+    // assigning cards count
+    chats_count = document.getElementById('chats_count');
+
+    // assigning cards containers
+    chats_container = document.querySelector('.chats');
+
+    //fetched & rendered users html
+    fetch_chats();
+
+});
+
+// fetch chats
+function fetch_chats(){
+    
+    fetch(`http://localhost/interstellar_date_server/chats.php?logged_user_id=${logged_user_id}`)
+    .then(response => response.json())
+    .then((data)=>{
+        console.log(data)
+        chats_count.innerText = data.length;
+        // likes_user is default state but dont actually mean user was liked
+        let state = 'likes_user';
+        render_users_cards(data, state, chats_container);
+    });
+    
+}
 
 // fetch joined today users
 function fetch_joined_today(){
