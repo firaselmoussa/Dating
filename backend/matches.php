@@ -3,20 +3,15 @@
 include 'connection.php';
 error_reporting(0);
 
-$where = ' ';
+$having = ' ';
 
 if(isset($_GET['logged_user_id'])){
     $logged_user_id = $_GET['logged_user_id'];
-    $where .= "`id` != '$logged_user_id'";
-}
-
-if(isset($_GET['user_name'])){
-    $user_name = $_GET['user_name'];
-    $where .= "AND `name` LIKE '$user_name%'";
+    $having .= "`liked_user_id` = '$logged_user_id'";
 }
 
 
-$sql = "SELECT * FROM `users` WHERE $where";
+$sql = "SELECT * FROM `liked_users` INNER JOIN `users` ON users.id = liked_users.liked_by_id Having liked_user_id = (SELECT liked_user_id FROM `liked_users` Having $having LIMIT 1)";
 
 $result = mysqli_query($conn, $sql);
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);

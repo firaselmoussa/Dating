@@ -17,7 +17,7 @@ if(isset($_GET['liked_user_id'])){
 }
 
 // check if liked already
-$check_duplication = "SELECT `id`, `liked_user_id`, `liked_by_id` FROM `liked_users` WHERE `liked_by_id` = '$user_id' AND `liked_user_id` = '$liked_user_id';";
+$check_duplication = "SELECT `liked_user_id`, `liked_by_id` FROM `liked_users` WHERE `liked_by_id` = '$user_id' AND `liked_user_id` = '$liked_user_id';";
 
 $check_duplication_result = mysqli_query($conn, $check_duplication);
 
