@@ -231,7 +231,9 @@ function render_users_cards(users, state, container){
         // liking user
         lounge_like_btn.forEach(element => {
             element.addEventListener('click', ()=>{
-                    like_user_function(users_data_array[index].id, logged_user_id)
+                    like_user_function(users_data_array[index].id, logged_user_id);
+                    // giving it close btn functionality
+                    remove_card.click();
                 });
             });
 
