@@ -92,6 +92,38 @@ lounge_btn.addEventListener('click', ()=>{
 
 });
 
+// render joined today page html
+joined_today_btn.addEventListener('click', ()=>{
+    
+    // insert lounge html
+    cards_container.innerHTML = joined_today_html;
+
+    // assigning cards count
+    joined_today_count = document.getElementById('joined_today_count');
+
+    // assigning cards containers
+    joined_today_container = document.querySelector('.joined-today');
+
+    //fetched & rendered users html
+    fetch_joined_today();
+
+});
+
+// fetch joined today users
+function fetch_joined_today(){
+    
+    fetch(`http://localhost/interstellar_date_server/joined_today.php`)
+    .then(response => response.json())
+    .then((data)=>{
+        console.log(data)
+        joined_today_count.innerText = data.length;
+        // likes_user is default state but dont actually mean user was liked
+        let state = 'likes_user';
+        render_users_cards(data, state, joined_today_container);
+    });
+    
+}
+
 // fetch liked users
 function fetch_liked(){
     
