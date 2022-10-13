@@ -46,7 +46,7 @@ function render_lounge_card(userData, container){
                                 <p class="user-biography" id="user_biography">${userData.biography}</p>
 
                                 <div class="card-footer">
-                                    <i class="material-icons" id="x_user">clear</i>
+                                    <i class="material-icons lounge-close-btn" id="x_user">clear</i>
                                     <i class="material-icons lounge-like-btn" id="lounge_card_btn">favorite</i>
                                 </div>
 
@@ -115,7 +115,6 @@ function fetch_joined_today(){
     fetch(`http://localhost/interstellar_date_server/joined_today.php`)
     .then(response => response.json())
     .then((data)=>{
-        console.log(data)
         joined_today_count.innerText = data.length;
         // likes_user is default state but dont actually mean user was liked
         let state = 'likes_user';
@@ -233,6 +232,16 @@ function render_users_cards(users, state, container){
         lounge_like_btn.forEach(element => {
             element.addEventListener('click', ()=>{
                     like_user_function(users_data_array[index].id, logged_user_id)
+                });
+            });
+
+        // add event listener to all user cards
+        const lounge_close_btn = Object.values(document.getElementsByClassName('lounge-close-btn'));
+        // liking user
+        lounge_close_btn.forEach(element => {
+            element.addEventListener('click', ()=>{
+                    // giving it close btn functionality
+                    remove_card.click();
                 });
             });
         });
