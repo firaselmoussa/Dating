@@ -102,7 +102,7 @@ lounge_btn.addEventListener('click', ()=>{
 // render joined today page html
 joined_today_btn.addEventListener('click', ()=>{
     
-    // insert lounge html
+    // insert joined today html
     cards_container.innerHTML = joined_today_html;
 
     // assigning cards count
@@ -119,7 +119,7 @@ joined_today_btn.addEventListener('click', ()=>{
 // render chats page html
 chats_btn.addEventListener('click', ()=>{
     
-    // insert lounge html
+    // insert chats html
     cards_container.innerHTML = chats_html;
 
     // assigning cards count

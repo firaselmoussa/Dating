@@ -501,7 +501,8 @@ body {
 }
 
 /* JOINED TODAY USERS */
-.joined-today-cards {
+.joined-today-cards,
+.chats-cards {
     width: 95%;
     height: 80vh;
     margin-left: 2%;
@@ -514,3 +515,48 @@ body {
     margin-top: 10px;
     gap: 10px;
 }
+
+.chats {
+    height: 10%;
+    width: 95%;
+    margin-top: 10px;
+    gap: 10px;
+    display: block;
+    gap: 5px;
+}
+
+.chats .lounge-user-card{
+    width: 100%;
+    height: 100px;
+    margin: 5px 0;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(50px);
+    display: flex;
+    flex-flow: wrap row;
+}
+
+.lounge-user-card:hover{
+    margin-left: 2%;
+}
+
+.chats img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    position: absolute;
+    top:50%;
+    left:2%;
+    transform: translateY(-50%);
+}
+
+.chats .lounge-card-username{
+    position: fixed;
+    top: 30%;
+    left: 15%;
+}
+
+.chats .lounge-card-age {
+    display: none;
+}
+
