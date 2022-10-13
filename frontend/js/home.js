@@ -4,6 +4,7 @@ const card_users = document.getElementById('card-users');
 const explore_btn = document.getElementById('explore_btn');
 const lounge_btn = document.getElementById('lounge_btn');
 const joined_today_btn = document.getElementById('joined_today_btn');
+const chats_btn = document.getElementById('chats_btn');
 
 // lounge html
 let lounge_html = `<div class="lounge-cards">
@@ -19,6 +20,12 @@ let lounge_html = `<div class="lounge-cards">
 let joined_today_html = `<div class="joined-today-cards">
                             <h4><span id="joined_today_count">0</span> Joined Today</h4>
                             <div class="joined-today"></div>
+                        </div>`;
+
+// chats html
+let chats_html = `<div class="chats-cards">
+                            <h4><span id="chats_count">0</span>Chats</h4>
+                            <div class="chats"></div>
                         </div>`;
 
 function render_lounge_card(userData, container){
