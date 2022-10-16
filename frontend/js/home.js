@@ -60,6 +60,11 @@ function render_lounge_card(userData, container){
                         </div>`;
 };
 
+// rendering chat
+function render_chat(x, z){
+    console.log(x, z);
+}
+
 let users_data_array = [];
 // declaring cards count
 let liked_users_count;
@@ -139,11 +144,11 @@ function fetch_chats(){
     fetch(`http://localhost/interstellar_date_server/chats.php?logged_user_id=${logged_user_id}`)
     .then(response => response.json())
     .then((data)=>{
-        console.log(data)
         chats_count.innerText = data.length;
         // likes_user is default state but dont actually mean user was liked
-        let state = 'likes_user';
+        let state = 'chat';
         render_users_cards(data, state, chats_container);
+        // document.querySelector('.lounge-card-username').style.border = '3px solid red';
     });
     
 }
@@ -234,8 +239,12 @@ function render_users_cards(users, state, container){
             element.addEventListener('click', ()=>{
                 // getting index of elements
                 let index = element.getAttribute('index');
-                render_lounge_card(users_data_array[index], cards_container);
                 
+                if(state == 'chat'){
+                    render_chat(users_data_array[index], cards_container);
+                }else{
+                render_lounge_card(users_data_array[index], cards_container);
+                }
                 // Removing card 
                 document.getElementById('remove_card').addEventListener('click', ()=>{
                     // clearing cards container
