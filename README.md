@@ -1,6 +1,6 @@
-# INTERSTELLAR DATE
+# INTERSTELLAR DATE 💕
 
-## FIND YOUR LOVE BETWEEN THE STARS 💕
+## FIND YOUR LOVE BETWEEN THE STARS <a href="https://firaselmoussa.github.io/Interstellar-Date/">HERE.</a>
 
 <BR><BR>
 
@@ -20,7 +20,8 @@
 
 <div style="display:flex;
             flex-flow: wrap row;
-            justify-content: space-between;">
+            justify-content: space-between;
+            align-items:center;">
 <img src="assets/readme-images/signup-1-img.png" style="width:32%;">
 <img src="assets/readme-images/signup-2-img.png" style="width:32%;">
 <img src="assets/readme-images/signup-3-img.png" style="width:32%;">
