@@ -18,10 +18,13 @@
 
 ## OR SIGN UP
 
+<div style="display:flex;
+            flex-flow: wrap row;
+            justify-content: space-between;">
 <img src="assets/readme-images/signup-1-img.png" style="width:33%; float:left;">
-<img src="assets/readme-images/signup-2-img.png" style="width:33%; margin-left:.5%; float:left;">
-<img src="assets/readme-images/signup-3-img.png" style="width:33%; margin-left:.5%; float:left;">
-
+<img src="assets/readme-images/signup-2-img.png" style="width:33%;">
+<img src="assets/readme-images/signup-3-img.png" style="width:33%;">
+</div>
 <BR>
 
 ## EXPLORE
