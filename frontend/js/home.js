@@ -28,6 +28,14 @@ let chats_html = `<div class="chats-cards">
                             <div class="chats"></div>
                         </div>`;
 
+let chat_box_html = `<div class="chat-box">
+                            <div class="messages-div></div>
+                            <div class="send-message-div">
+                            <input type="text" class="message-input" placeholder="type your message..">
+                            <i class="material-icons">send</i>
+                            <div/>
+                        </div>`;
+
 function render_lounge_card(userData, container){
 
     // calculating user's age
@@ -61,8 +69,12 @@ function render_lounge_card(userData, container){
 };
 
 // rendering chat
-function render_chat(x, z){
-    console.log(x, z);
+function render_chat(x, z, element){
+    console.log(element, x, z);
+    element.classList.add('chat-open');
+    element.innerHTML += chat_box_html; 
+    // console.log(y);
+
 }
 
 let users_data_array = [];
@@ -148,7 +160,6 @@ function fetch_chats(){
         // likes_user is default state but dont actually mean user was liked
         let state = 'chat';
         render_users_cards(data, state, chats_container);
-        // document.querySelector('.lounge-card-username').style.border = '3px solid red';
     });
     
 }
@@ -241,10 +252,10 @@ function render_users_cards(users, state, container){
                 let index = element.getAttribute('index');
                 
                 if(state == 'chat'){
-                    render_chat(users_data_array[index], cards_container);
+                    render_chat(users_data_array[index], cards_container, element);
                 }else{
                 render_lounge_card(users_data_array[index], cards_container);
-                }
+                
                 // Removing card 
                 document.getElementById('remove_card').addEventListener('click', ()=>{
                     // clearing cards container
@@ -258,7 +269,7 @@ function render_users_cards(users, state, container){
                     fetch_liked_by();
                     fetch_matches();
                 });
-        
+            }
             // card's varying button
             let lounge_card_btn = document.getElementById('lounge_card_btn');
 

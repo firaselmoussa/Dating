@@ -466,7 +466,6 @@ body {
 }
 
 .lounge-user-card:hover {
-    scale: 1.04;
     filter: drop-shadow(0 0 2px white) brightness(1.2);
     
 }
@@ -536,27 +535,45 @@ body {
     flex-flow: wrap row;
 }
 
-.lounge-user-card:hover{
-    margin-left: 2%;
-}
-
 .chats img {
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    position: absolute;
-    top:50%;
+    position: relative;
+    top:20px;
     left:2%;
-    transform: translateY(-50%);
+    z-index: 2;
 }
 
-.chats .lounge-card-username{
-    position: fixed;
-    top: 30%;
-    left: 15%;
+.chats h5{
+    position: relative;
+    top: 30px;
+    left: 35px;
 }
 
 .chats .lounge-card-age {
     display: none;
 }
 
+/* open chat css */
+
+.chats .chat-open{
+    height:920%;
+    position: relative;
+    top:0%;
+}
+
+.chat-box{
+    height:85%;
+    width:100%;
+    background: blue;
+}
+
+.send-message-div{
+    width: 90%;
+    height: fit-content;
+    position: absolute;
+    bottom: 0%;
+    left:5%;
+    background: yellow;
+}
